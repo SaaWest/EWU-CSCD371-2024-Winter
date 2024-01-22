@@ -12,24 +12,3 @@ public abstract class BaseLogger
 
 
 }
-//this needs to be discussed: as the Log above is the same
-public class FileLogger : BaseLogger
-{
-    public string filePath;
-
-    public FileLogger(string FilePath)
-    {
-        this.filePath = FilePath;
-    }
-
-    public overrride void Log(LogLevel logLevel, string message, string path)
-    {
-        if (!File.Exists(path))
-        {
-            using (StreamWriter writer = File.CreatePath(path))
-            {
-                writer.WriteLine($"{DateTime.Now} {ClassName} {logLevel} {message}")
-            }
-        }
-    }
-}
