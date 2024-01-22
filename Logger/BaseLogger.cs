@@ -22,7 +22,7 @@ public class FileLogger : BaseLogger
         this.filePath = FilePath;
     }
 
-    public overrride void Log(LogLevel logLevel, string, message, string path)
+    public overrride void Log(LogLevel logLevel, string message, string path)
     {
         if (!File.Exists(path))
         {

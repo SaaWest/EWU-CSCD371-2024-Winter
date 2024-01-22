@@ -11,7 +11,8 @@ public static class BaseLoggerMixins
         }
         else
         {
-            logger.Log(LogLevel.Error, message);
+            string formatedMessage = string.Format(message, arguement);
+            logger.Log(LogLevel.Error, formatedMessage);
         }
     }
     public static void Warning(this BaseLogger logger, string message, params arguement[])
@@ -22,7 +23,8 @@ public static class BaseLoggerMixins
         }
         else
         {
-            logger.Log(LogLevel.Warning, message);
+            string formatedMessage = string.Format(message, arguement);
+            logger.Log(LogLevel.Warning, formatedMessage);
         }
     }
     public static void Information(this BaseLogger logger, string message, params arguement[])
@@ -33,7 +35,8 @@ public static class BaseLoggerMixins
         }
         else
         {
-            logger.Log(LogLevel.Information, message);
+            string formatedMessage = string.Format(message, arguement);
+            logger.Log(LogLevel.Information, formatedMessage);
         }
     }
     public static void Debug(this BaseLogger logger, string message, params arguement[])
@@ -44,7 +47,8 @@ public static class BaseLoggerMixins
         }
         else
         {
-            logger.Log(LogLevel.Debug, message);
+            string formatedMessage = string.Format(message, arguement);
+            logger.Log(LogLevel.Debug, formatedMessage);
         }
     }
 
