@@ -2,11 +2,11 @@
 
 public class LogFactory
 {
-    private string File;
+    private string? File;
 
-    public BaseLogger CreateLogger(string? className)
+    public BaseLogger? CreateLogger(string? className)
     {
-        if (File != null)
+        if (File != null && className != null)
         {
             return new FileLogger(File) { ClassName = className };
         }
@@ -15,12 +15,13 @@ public class LogFactory
             return null;
         }
 
-        }
-
-        public string ConfigureFileLogger(string? filePath)
-        {
-            File = filePath;
-            return File;
-        }
     }
+
+    public string? ConfigureFileLogger(string? filePath)
+    {
+        File = filePath;
+        return File;
+    }
+    
 }
+
