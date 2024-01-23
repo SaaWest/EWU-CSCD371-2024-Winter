@@ -2,8 +2,8 @@
 
 public class LogFactory
 {
-    BaseLogger Logger = new BaseLogger() { ClassName = className };
     private string File;
+
     public BaseLogger CreateLogger(string? className)
     {
         if (File != null)
