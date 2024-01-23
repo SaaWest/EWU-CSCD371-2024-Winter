@@ -1,24 +1,26 @@
-﻿namespace Logger;
-
-public class LogFactory
+﻿namespace Logger
 {
-    BaseLogger Logger = new BaseLogger() { ClassName = className };
-    private string File;
-    public BaseLogger CreateLogger(string? className)
+    public class LogFactory
     {
-        if (File != null)
+        //BaseLogger Logger = new BaseLogger() { ClassName = className };
+        private string File;
+        public BaseLogger CreateLogger(string? className)
         {
-            return new FileLogger(File) { ClassName = className };
-        }
-        else
-        {
-            return null;
+            if (File != null)
+            {
+                return new FileLogger(File) { ClassName = className };
+            }
+            else
+            {
+                return null;
+            }
+
         }
 
-    }
-
-    public LogFactory ConfigureFileLogger(string? filePath)
-    {
-        File = filePath;
+        public string ConfigureFileLogger(string? filePath)
+        {
+            File = filePath;
+            return File;
+        }
     }
 }

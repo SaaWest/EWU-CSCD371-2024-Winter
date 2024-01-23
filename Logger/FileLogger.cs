@@ -1,24 +1,25 @@
-namespace Logger;
-
 using System.IO;
 using System;
 
-public class FileLogger : BaseLogger
+namespace Logger
 {
-    public string filePath;
-
-    public FileLogger(string FilePath)
+    public class FileLogger : BaseLogger
     {
-        this.filePath = FilePath;
-    }
+        public string filePath;
 
-    public overrride void Log(LogLevel logLevel, string message, string path)
-    {
-        if (!File.Exists(path))
+        public FileLogger(string FilePath)
         {
-            using (StreamWriter writer = File.CreatePath(path))
+            this.filePath = FilePath;
+        }
+
+        public void Log(LogLevel logLevel, string message, string path)
+        {
+            if (!File.Exists(path))
             {
-                writer.WriteLine($"{DateTime.Now} {ClassName} {logLevel} {message}")
+                //using (StreamWriter writer = File.CreatePath(path)) 
+                //{
+                //    writer.WriteLine($"{DateTime.Now} {ClassName} {logLevel} {message}");
+                //}
             }
         }
     }
