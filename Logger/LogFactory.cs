@@ -2,7 +2,7 @@
 
 public class LogFactory
 {
-    BaseLogger Logger = new BaseLogger() { ClassName = className };
+    //BaseLogger Logger = new BaseLogger("className") { ClassName = className };
     private string File;
     public BaseLogger CreateLogger(string className)
     {
@@ -17,8 +17,9 @@ public class LogFactory
 
     }
 
-    public LogFactory ConfigureFileLogger(string filePath)
+    public string ConfigureFileLogger(string filePath)
     {
         File = filePath;
+        return File;
     }
 }
