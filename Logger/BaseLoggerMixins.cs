@@ -33,7 +33,7 @@ public static class BaseLoggerMixins
     {
         if (logger == null)
         {
-            throw new ArgumentException(nameof (logger));
+            throw new ArgumentNullException(nameof (logger));
         }
         else
         {
@@ -41,11 +41,11 @@ public static class BaseLoggerMixins
             logger.Log(LogLevel.Information, formatedMessage);
         }
     }
-    /*public static void Debug(this BaseLogger? logger, string message, params arguement[])
+    public static void Debug(this BaseLogger? logger, string message, params string[] arguement)
     {
         if (logger == null)
         {
-            Console.WriteLine("object is null");
+            throw new ArgumentNullException(nameof(logger));
         }
         else
         {
@@ -53,7 +53,7 @@ public static class BaseLoggerMixins
             logger.Log(LogLevel.Debug, formatedMessage);
         }
     }
-    */
+    
 
 }
 
