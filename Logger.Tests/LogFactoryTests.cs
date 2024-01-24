@@ -6,16 +6,29 @@ namespace Logger.Tests;
 [TestClass]
 public class LogFactoryTests
 {
-    //[TestMethod]
-    //public void CreateLogger_LogFactory(string className)
-    //{
-    //    return;
-    //}
-    //[TestMethod]
-    //public void ConfigureFileLogger_LogFactory(string fileName)
-    //{
-    //    return;
-    //}
+    [TestMethod]
+    [DataRow("file", "class")]
+    public void TryCreateNewFileLogger_NotNull_Success(string fileName, string className)
+    {
+        LogFactory logFactory = new();
+        FileLogger? fileLog = logFactory.CreateLogger(fileName, className);
+        Assert.IsNotNull(fileLog);
+    }
+
+    [TestMethod]
+    [DataRow("file")]
+    public void TryCreateNewLogger_NoClass_Fail(string fileName, string className)
+    {
+        LogFactory logFactory = new();
+        FileLogger? fileLog = logFactory.CreateLogger(fileName, className);
+        //Assert.Fail(fileLog.ClassName != null);
+    }
+
+    [TestMethod]
+    public void ConfigureFileLogger_LogFactory(string fileName)
+    {
+        
+    }
 
 }
 

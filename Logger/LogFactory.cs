@@ -4,17 +4,16 @@ public class LogFactory
 {
     private string? File;
 
-    public BaseLogger? CreateLogger(string? className)
+    public FileLogger? CreateLogger(string? file, string? className)
     {
-        if (File != null && className != null)
+        if (file != null && className != null)
         {
-            return new FileLogger(File) { ClassName = className };
+            return new FileLogger(file) { ClassName = className };
         }
         else
         {
             return null;
         }
-
     }
 
     public string? ConfigureFileLogger(string? filePath)
