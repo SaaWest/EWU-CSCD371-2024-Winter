@@ -14,17 +14,23 @@ public class FileLogger : BaseLogger
 
     public override void Log(LogLevel logLevel, string message)
     {
-        
-    }
+        string path = filePath;
 
-    //public override void Log(LogLevel logLevel, string message, string path)
-    //{
-    //    if (!File.Exists(path))
-    //    {
-    //        using (StreamWriter writer = File.CreatePath(path))
-    //        {
-    //            writer.WriteLine($"{DateTime.Now} {ClassName} {logLevel} {message}");
-    //        }
-    //    }
-    //}
+        if (!File.Exists(path))
+        {
+            using (StreamWriter writer = File.AppendText(path))
+            {
+                writer.WriteLine($"{DateTime.Now} {ClassName} {logLevel} {message}");
+            }
+            using (StreamReader steamRead = File.OpenText(path))
+            {
+                string? messageWriter = "";
+                while ((messageWriter = steamRead.ReadLine()) != null)
+                {
+                    Console.WriteLine(messageWriter);
+                }
+            }
+        }
+
+    }
 }
