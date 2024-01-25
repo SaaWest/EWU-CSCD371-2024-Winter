@@ -1,5 +1,6 @@
 ﻿//baseloggerMixins
 using System;
+using System.Globalization;
 namespace Logger;
 
 public static class BaseLoggerMixins
@@ -13,7 +14,7 @@ public static class BaseLoggerMixins
         }
         else
         {
-            string formatedMessage = string.Format(message, arguement);
+            string formatedMessage = string.Format(CultureInfo.CurrentCulture, message, arguement);
             logger.Log(LogLevel.Error, formatedMessage);
         }
     }
@@ -25,7 +26,7 @@ public static class BaseLoggerMixins
         }
         else
         {
-            string formatedMessage = string.Format(message, arguement);
+            string formatedMessage = string.Format(CultureInfo.CurrentCulture, message, arguement);
             logger.Log(LogLevel.Warning, formatedMessage);
         }
     }
@@ -37,7 +38,7 @@ public static class BaseLoggerMixins
         }
         else
         {
-            string formatedMessage = string.Format(message, arguement);
+            string formatedMessage = string.Format(CultureInfo.CurrentCulture, message, arguement);
             logger.Log(LogLevel.Information, formatedMessage);
         }
     }
@@ -49,7 +50,7 @@ public static class BaseLoggerMixins
         }
         else
         {
-            string formatedMessage = string.Format(message, arguement);
+            string formatedMessage = string.Format(CultureInfo.CurrentCulture, message, arguement);
             logger.Log(LogLevel.Debug, formatedMessage);
         }
     }
