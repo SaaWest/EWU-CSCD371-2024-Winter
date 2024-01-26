@@ -18,10 +18,5 @@ public class LogFactory
     }
 
     public void ConfigureFileLogger(string? filePath) => File = filePath;
-    /*{
-        File = filePath;
-        return File;
-    }*/
-    
 }
 

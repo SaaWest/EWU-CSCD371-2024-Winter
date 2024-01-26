@@ -48,7 +48,7 @@ public class BaseLoggerMixinsTests
         var logger = new TestLogger(nameof(BaseLoggerMixinsTests));
 
         //// Act
-        logger.Error("Message", 42.ToString());
+        logger.Error("Message 42");
 
         //// Assert
         Assert.AreEqual(1, logger.LoggedMessages.Count);
@@ -60,7 +60,7 @@ public class BaseLoggerMixinsTests
     {
         var logger = new TestLogger(nameof(BaseLoggerMixinsTests));
 
-        logger.Warning("Message", 42.ToString());
+        logger.Warning("Message 42");
 
         Assert.AreEqual(1, logger.LoggedMessages.Count);
         Assert.AreEqual(LogLevel.Warning, logger.LoggedMessages[0].LogLevel);
@@ -71,7 +71,7 @@ public class BaseLoggerMixinsTests
     {
         var logger = new TestLogger(nameof(BaseLoggerMixinsTests));
 
-        logger.Information("Message", 42.ToString());
+        logger.Information("Message 42");
 
         Assert.AreEqual(1, logger.LoggedMessages.Count);
         Assert.AreEqual(LogLevel.Information, logger.LoggedMessages[0].LogLevel);
@@ -82,7 +82,7 @@ public class BaseLoggerMixinsTests
     {
         var logger = new TestLogger(nameof(BaseLoggerMixinsTests));
 
-        logger.Debug("Message", 42.ToString());
+        logger.Debug("Message 42");
 
         Assert.AreEqual(1, logger.LoggedMessages.Count);
         Assert.AreEqual(LogLevel.Debug, logger.LoggedMessages[0].LogLevel);
