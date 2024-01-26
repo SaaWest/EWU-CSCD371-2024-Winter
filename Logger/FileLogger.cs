@@ -5,24 +5,31 @@ namespace Logger;
 
 public class FileLogger : BaseLogger
 {
-    public string filePath;
+    //public string filePath;
 
-    public FileLogger(string FilePath)
+    public FileLogger(string className, string filePath)
     {
-        this.filePath = FilePath;
-    }
+        FilePath = filePath;
+        File = new FileInfo(filePath);
+        ClassName = className;
 
+    }
+    public string FilePath { get; }
+
+    private FileInfo File { get; }
+
+    public override string ClassName { get;}
     public override void Log(LogLevel logLevel, string message)
     {
-        string path = filePath;
+        //string path = filePath;
 
-        if (!File.Exists(path))
+        //if (!File.Exists(path))
+        //{
+        using (StreamWriter writer = File.AppendText())
         {
-            using (StreamWriter writer = File.AppendText(path))
-            {
-                writer.WriteLine($"{DateTime.Now} {ClassName} {logLevel} {message}");
-            }
-            using (StreamReader steamRead = File.OpenText(path))
+            writer.WriteLine($"{DateTime.Now} {ClassName} {logLevel} {message}");
+        }
+            /*using (StreamReader steamRead = File.OpenText(path))
             {
                 string? messageWriter = "";
                 while ((messageWriter = steamRead.ReadLine()) != null)
@@ -30,7 +37,7 @@ public class FileLogger : BaseLogger
                     Console.WriteLine(messageWriter);
                 }
             }
-        }
+        }*/
 
     }
 }
