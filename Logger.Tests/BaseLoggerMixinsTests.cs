@@ -46,10 +46,10 @@ public class BaseLoggerMixinsTests
     public void Error_WithData_LogsMessage()
     {
         //// Arrange
-        var logger = new TestLogger();
+        var logger = new TestLogger(nameof(BaseLoggerMixinsTests));
 
         //// Act
-        logger.Error("Message 42");
+        logger.Error("Message", 42.ToString());
 
         //// Assert
         Assert.AreEqual(1, logger.LoggedMessages.Count);
@@ -59,9 +59,9 @@ public class BaseLoggerMixinsTests
     [TestMethod]
     public void Warning_WithData_LogsMessage()
     {
-        var logger = new TestLogger();
+        var logger = new TestLogger(nameof(BaseLoggerMixinsTests));
 
-        logger.Warning("Message 42");
+        logger.Warning("Message", 42.ToString());
 
         Assert.AreEqual(1, logger.LoggedMessages.Count);
         Assert.AreEqual(LogLevel.Warning, logger.LoggedMessages[0].LogLevel);
@@ -70,9 +70,9 @@ public class BaseLoggerMixinsTests
     [TestMethod]
     public void Information_WithData_LogsMessage()
     {
-        var logger = new TestLogger();
+        var logger = new TestLogger(nameof(BaseLoggerMixinsTests));
 
-        logger.Information("Message 42");
+        logger.Information("Message", 42.ToString());
 
         Assert.AreEqual(1, logger.LoggedMessages.Count);
         Assert.AreEqual(LogLevel.Information, logger.LoggedMessages[0].LogLevel);
@@ -81,9 +81,9 @@ public class BaseLoggerMixinsTests
     [TestMethod]
     public void Debug_WithData_LogsMessage()
     {
-        var logger = new TestLogger();
+        var logger = new TestLogger(nameof(BaseLoggerMixinsTests));
 
-        logger.Debug("Message 42");
+        logger.Debug("Message", 42.ToString());
 
         Assert.AreEqual(1, logger.LoggedMessages.Count);
         Assert.AreEqual(LogLevel.Debug, logger.LoggedMessages[0].LogLevel);
@@ -92,10 +92,11 @@ public class BaseLoggerMixinsTests
     
 }
 
-public class TestLogger : BaseLogger
+public class TestLogger(string className) : BaseLogger
 {
     public List<(LogLevel LogLevel, string Message)> LoggedMessages { get; } = new List<(LogLevel, string)>();
 
+    public override string ClassName { get; } = className;
     public override void Log(LogLevel logLevel, string message)
     {
         LoggedMessages.Add((logLevel, message));
