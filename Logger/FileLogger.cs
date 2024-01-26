@@ -19,6 +19,7 @@ public class FileLogger : BaseLogger
     private FileInfo File { get; }
 
     public override string ClassName { get;}
+
     public override void Log(LogLevel logLevel, string message)
     {
         //string path = filePath;

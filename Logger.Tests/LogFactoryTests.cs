@@ -11,17 +11,17 @@ public class LogFactoryTests
     public void TryCreateNewFileLogger_NotNull_Success(string fileName, string className)
     {
         LogFactory logFactory = new();
-        FileLogger? fileLog = logFactory.CreateLogger(fileName, className);
+        FileLogger? fileLog = (FileLogger?)logFactory.CreateLogger(className);
         Assert.IsNotNull(fileLog);
     }
 
     [TestMethod]
-    [DataRow("file")]
+    [DataRow("file", null)]
     public void TryCreateNewLogger_NoClass_Fail(string fileName, string className)
     {
         LogFactory logFactory = new();
-        FileLogger? fileLog = logFactory.CreateLogger(fileName, className);
-        //Assert.Fail(fileLog.ClassName != null);
+        FileLogger? fileLog = (FileLogger?)logFactory.CreateLogger(className);
+        Assert.IsNull(fileLog);
     }
 
     [TestMethod]

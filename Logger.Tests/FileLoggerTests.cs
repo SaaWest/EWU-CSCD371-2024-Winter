@@ -15,7 +15,7 @@ public class FileLoggerTests
         FilePath = Path.GetTempFileName();
         Logger = new FileLogger(nameof(FileLoggerTests), FilePath);
         
-        var logger = new TestLogger();
+        var logger = new TestLogger("");
         
         string message = "Hello";
 
