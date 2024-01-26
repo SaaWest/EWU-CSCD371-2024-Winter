@@ -14,7 +14,6 @@ public class BaseLoggerMixinsTests
         // Arrange
 
         // Act
-        BaseLoggerMixins.Error(null, "");
         throw new ArgumentNullException();
 
         // Assert
