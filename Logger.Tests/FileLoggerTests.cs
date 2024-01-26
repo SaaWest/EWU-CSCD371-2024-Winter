@@ -4,21 +4,20 @@ using System.IO;
 namespace Logger.Tests;
 
 [TestClass]
-public class FileLoggerTests
+public class FileLoggerTests :FileLoggerTestsBase
 {
-    public string? FilePath { get; set; }
-    public FileLogger? Logger { get; set; }
-    [TestInitialize]
-    public virtual void Log_FileLogger(/*LogLevel logLevel, string message, string path*/)
+    [TestMethod]
+    public virtual void Create_ClassName_FileName_Success()
     {
-        FilePath = Path.GetTempFileName();
-        Logger = new FileLogger(nameof(FileLoggerTests), FilePath);
+        Assert.AreEqual(nameof(FileLoggerTestsBase), Logger.ClassName);
+        Assert.AreEqual(FilePath, Logger.FilePath);
+    }
+    [TestMethod]
+    public void Create_ClassName_FileName_Failure()
+    {
+        Assert.AreNotEqual(nameof(File), Logger.ClassName);
+        Assert.AreNotEqual("FilePath", Logger.FilePath);
         
-        var logger = new TestLogger("");
-        
-        string message = "Hello";
-
-        logger.Log(LogLevel.Warning, message);
     }
 
 }
