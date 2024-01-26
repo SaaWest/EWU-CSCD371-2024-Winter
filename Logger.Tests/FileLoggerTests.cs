@@ -9,7 +9,6 @@ public class FileLoggerTests
     public string? FilePath { get; set; }
     public FileLogger? Logger { get; set; }
     [TestInitialize]
-    //[DataRow(,)]
     public virtual void Log_FileLogger(/*LogLevel logLevel, string message, string path*/)
     {
         FilePath = Path.GetTempFileName();
@@ -20,10 +19,6 @@ public class FileLoggerTests
         string message = "Hello";
 
         logger.Log(LogLevel.Warning, message);
-
-
-
-        //return;
     }
 
 }

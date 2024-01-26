@@ -1,9 +1,4 @@
 ﻿//baseloger
-
-using System.IO;
-using System;
-using System.Globalization;
-
 namespace Logger;
 
 public abstract class BaseLogger
