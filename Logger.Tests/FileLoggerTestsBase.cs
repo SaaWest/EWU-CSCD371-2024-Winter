@@ -15,7 +15,7 @@ namespace Logger.Tests;
         Logger = new FileLogger(nameof(FileLoggerTestsBase), FilePath);
      }
     [TestCleanup]
-    public virtual void FileLogger_Cleanup()
+    public virtual void FileLoggerCleanup()
     {
         if (File.Exists(FilePath))
         {
