@@ -2,7 +2,7 @@
 
 namespace CanHazFunny
 {
-    public class JokeService
+    public class JokeService : IJokerJokes
     {
         private HttpClient HttpClient { get; } = new();
 
@@ -13,3 +13,4 @@ namespace CanHazFunny
         }
     }
 }
+
