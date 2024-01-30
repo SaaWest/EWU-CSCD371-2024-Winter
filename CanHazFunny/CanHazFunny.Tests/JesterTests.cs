@@ -1,19 +1,15 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using Xunit;
 using NUnit.Framework;
 using Moq;
-using System.Collections.Generic;
 using Assert = NUnit.Framework.Assert;
 using System.IO;
-
 
 namespace CanHazFunny.Tests;
 [TestClass]
 public class JesterTests
 {
     [Test]
-    //[DataRow(new JokeService(), new TellJoke())]
     public void Constructor_JokerService_Null()
     {
         Assert.Throws<ArgumentNullException>(() => new Jester(null!, new OutputJoke()));
