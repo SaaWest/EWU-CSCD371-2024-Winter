@@ -14,7 +14,7 @@ namespace CanHazFunny.Tests;
         [Test]
         public void GtJoke_ReturnJoke()
         {
-            JokeService jokeService = new JokeService();
+            JokeService jokeService = new();
             string joke = jokeService.GetJoke();
             Assert.IsNotNull(joke);
         }

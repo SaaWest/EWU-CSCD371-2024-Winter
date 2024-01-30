@@ -49,15 +49,13 @@ namespace CanHazFunny.Tests;
 
             var jester = new Jester(jokeService.Object, outPut.Object);
 
-            using (StringWriter stringWriter = new StringWriter())
-            {
-                Console.SetOut(stringWriter);
-                for(int i = 0; i < 10; i++)
-                {
-                    jester.TellJoke();
-                    string consoleOutput = stringWriter.ToString();
-                    Assert.That(!consoleOutput.Contains("Chuck Norris"));
-                }
-            }
+        using StringWriter stringWriter = new();
+        Console.SetOut(stringWriter);
+        for (int i = 0; i < 10; i++)
+        {
+            jester.TellJoke();
+            string consoleOutput = stringWriter.ToString();
+            Assert.That(!consoleOutput.Contains("Chuck Norris"));
         }
     }
+}
