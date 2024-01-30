@@ -8,8 +8,7 @@ using Assert = NUnit.Framework.Assert;
 using System.IO;
 
 
-namespace CanHazFunny.Tests
-{
+namespace CanHazFunny.Tests;
     [TestClass]
     public class JesterTests
     {
@@ -62,4 +61,3 @@ namespace CanHazFunny.Tests
             }
         }
     }
-}

@@ -1,7 +1,6 @@
 ﻿using System;
 
-namespace CanHazFunny
-{
+namespace CanHazFunny;
     public class Jester
     {
         //public IJokeOutput? iJokeOutput1;
@@ -27,7 +26,6 @@ namespace CanHazFunny
         }
       
     }
-   
-}
+
 
 

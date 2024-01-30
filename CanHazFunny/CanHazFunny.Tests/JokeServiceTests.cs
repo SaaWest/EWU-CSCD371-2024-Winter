@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
-namespace CanHazFunny.Tests
-{
+namespace CanHazFunny.Tests;
     internal class JokeServiceTests
     {
         [Test]
@@ -20,4 +19,4 @@ namespace CanHazFunny.Tests
             Assert.IsNotNull(joke);
         }
     }
-}
+

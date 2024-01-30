@@ -3,8 +3,7 @@ using Assert = NUnit.Framework.Assert;
 using System.IO;
 using NUnit.Framework;
 
-namespace CanHazFunny.Tests
-{
+namespace CanHazFunny.Tests;
     internal class OutputJokeTests
     {
         [Test]
@@ -22,4 +21,3 @@ namespace CanHazFunny.Tests
 
         }
     }
-}
