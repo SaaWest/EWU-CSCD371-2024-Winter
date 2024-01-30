@@ -1,17 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using Xunit;
-using NUnit.Framework;
-using Moq;
-using System.Collections.Generic;
+﻿using System;
 using Assert = NUnit.Framework.Assert;
 using System.IO;
+using NUnit.Framework;
 
 namespace CanHazFunny.Tests
 {
     internal class OutputJokeTests
     {
-        [Fact]
+        [Test]
         public void OutputJoke_toConsole() 
         {
             var outputJoke = new OutputJoke();
@@ -21,7 +17,7 @@ namespace CanHazFunny.Tests
                 Console.SetOut(stringWriter);
                 outputJoke.Output(aJoke);
                 var writeJoke = stringWriter.ToString();
-                Assert.Equals(aJoke + Environment.NewLine, writeJoke);
+                Assert.That(aJoke + Environment.NewLine == writeJoke);
             }
 
         }
