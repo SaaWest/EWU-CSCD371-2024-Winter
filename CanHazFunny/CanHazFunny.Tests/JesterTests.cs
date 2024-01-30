@@ -9,45 +9,46 @@ using System.IO;
 
 
 namespace CanHazFunny.Tests;
-    [TestClass]
-    public class JesterTests
+[TestClass]
+public class JesterTests
+{
+    [Test]
+    //[DataRow(new JokeService(), new TellJoke())]
+    public void Constructor_JokerService_Null()
     {
-        [Test]
-        //[DataRow(new JokeService(), new TellJoke())]
-        public void Constructor_JokerService_Null() {
-            Assert.Throws<ArgumentNullException>(() => new Jester(null!, new OutputJoke()));
+        Assert.Throws<ArgumentNullException>(() => new Jester(null!, new OutputJoke()));
 
-        }
+    }
 
-        [Test]
-        public void Constructor_TellJoke_Null()
-        {
-            Assert.Throws<ArgumentNullException>(() => new Jester(new JokeService(), null!));
-        }
+    [Test]
+    public void Constructor_TellJoke_Null()
+    {
+        Assert.Throws<ArgumentNullException>(() => new Jester(new JokeService(), null!));
+    }
 
-        [Test]
-        public void TellJoke_JokeOutput()
-        {
-            var jokeService = new Mock<IJokerJokes>();
-            jokeService.Setup(s => s.GetJoke()).Returns("This is a joke");
-            var outPut = new Mock<IJokeOutput>();
+    [Test]
+    public void TellJoke_JokeOutput()
+    {
+        var jokeService = new Mock<IJokerJokes>();
+        jokeService.Setup(s => s.GetJoke()).Returns("This is a joke");
+        var outPut = new Mock<IJokeOutput>();
 
-            var jester = new Jester(jokeService.Object, outPut.Object);
-            jester.TellJoke();
+        var jester = new Jester(jokeService.Object, outPut.Object);
+        jester.TellJoke();
 
-            jokeService.Verify(s => s.GetJoke(), Times.Once);
-            
-            outPut.Verify( s => s.Output("This is a joke"), Times.Once);
-        }
+        jokeService.Verify(s => s.GetJoke(), Times.Once);
 
-        [Test]
-        public void TellTenJokes_NoChuckNorris_Success()
-        {
-            var jokeService = new Mock<IJokerJokes>();
-            jokeService.Setup(s => s.GetJoke()).Returns("This is a joke");
-            var outPut = new Mock<IJokeOutput>();
+        outPut.Verify(s => s.Output("This is a joke"), Times.Once);
+    }
 
-            var jester = new Jester(jokeService.Object, outPut.Object);
+    [Test]
+    public void TellTenJokes_NoChuckNorris_Success()
+    {
+        var jokeService = new Mock<IJokerJokes>();
+        jokeService.Setup(s => s.GetJoke()).Returns("This is a joke");
+        var outPut = new Mock<IJokeOutput>();
+
+        var jester = new Jester(jokeService.Object, outPut.Object);
 
         using StringWriter stringWriter = new();
         Console.SetOut(stringWriter);

@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CanHazFunny;
-    public class OutputJoke : IJokeOutput
+public class OutputJoke : IJokeOutput
+{
+    public void Output(string joke)
     {
-        public void Output(string joke)
-        {
-            Console.WriteLine(joke);
-        }
+        Console.WriteLine(joke);
     }
+}

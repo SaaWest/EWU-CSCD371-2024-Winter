@@ -1,13 +1,9 @@
-﻿using System;
+﻿namespace CanHazFunny;
 
-namespace CanHazFunny;
-
-   public interface IJokeOutput
+public interface IJokeOutput
+{
+    public void Output(string joke)
     {
-       public void Output(string joke)
-       {
-            
-       }
+
     }
-
-
+}

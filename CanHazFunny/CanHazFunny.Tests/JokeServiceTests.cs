@@ -9,14 +9,14 @@ using Xunit;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace CanHazFunny.Tests;
-    internal class JokeServiceTests
+public class JokeServiceTests
+{
+    [Test]
+    public void GtJoke_ReturnJoke()
     {
-        [Test]
-        public void GtJoke_ReturnJoke()
-        {
-            JokeService jokeService = new();
-            string joke = jokeService.GetJoke();
-            Assert.IsNotNull(joke);
-        }
+        JokeService jokeService = new();
+        string joke = jokeService.GetJoke();
+        Assert.IsNotNull(joke);
     }
+}
 

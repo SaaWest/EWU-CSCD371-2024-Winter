@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace CanHazFunny;
-    public class Jester(IJokerJokes jokerJokes, IJokeOutput jokeOutput)
+public class Jester(IJokerJokes jokerJokes, IJokeOutput jokeOutput)
 {
     //public IJokeOutput? iJokeOutput1;
 
@@ -9,16 +9,11 @@ namespace CanHazFunny;
     public IJokerJokes IJoker { get; set; } = jokerJokes ?? throw new ArgumentNullException(nameof(jokerJokes));
 
     public void TellJoke()
-        {
+    {
+        string joke = IJoker.GetJoke();
 
-            string joke = IJoker.GetJoke();
-
-            while (joke.Contains("Chuck Norris"))
-            { joke = IJoker.GetJoke(); }
-            IJokeOutput.Output(joke);
-        }
-      
+        while (joke.Contains("Chuck Norris"))
+        { joke = IJoker.GetJoke(); }
+        IJokeOutput.Output(joke);
     }
-
-
-
+}
