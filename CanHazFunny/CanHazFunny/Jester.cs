@@ -1,5 +1,4 @@
-﻿using CanHazFunny;
-using System;
+﻿using System;
 
 namespace CanHazFunny
 {
@@ -23,9 +22,7 @@ namespace CanHazFunny
             string joke = IJoker.GetJoke();
 
             while (joke.Contains("Chuck Norris"))
-            {
-                joke = IJoker.GetJoke();
-            }
+            { joke = IJoker.GetJoke(); }
             IJokeOutput.Output(joke);
         }
       
