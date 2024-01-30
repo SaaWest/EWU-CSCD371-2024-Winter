@@ -25,8 +25,8 @@ namespace CanHazFunny
             while (joke.Contains("Chuck Norris"))
             {
                 joke = IJoker.GetJoke();
-                IJokeOutput.Output(joke);
             }
+            IJokeOutput.Output(joke);
         }
       
     }
