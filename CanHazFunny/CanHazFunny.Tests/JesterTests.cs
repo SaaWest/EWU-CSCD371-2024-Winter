@@ -70,6 +70,25 @@ public class JesterTests
     public void TellTenJokes_NoChuckNorris_Success()
     {
         var jokeService = new Mock<IJokerJokes>();
+        jokeService.SetupSequence(s => s.GetJoke())
+                .Returns("Chuck Norris")
+                .Returns("Still Chuck Norris")
+                .Returns("This is a joke");
+
+        var outPut = new Mock<IJokeOutput>();
+        var jester = new Jester(jokeService.Object, outPut.Object);
+        using StringWriter stringWriter = new();
+        Console.SetOut(stringWriter);
+        jester.TellJoke();
+        //First joke TellJoke() will see is "Chuck Norris", so your TellJoke() method will call GetJoke() again
+        //The next joke GetJoke() Returns still contains Chuck so that while loop in TellJoke() will call GetJoke() again
+        //The last joke GetJoke() will return is good, so TellJoke() will exit that while loop
+        string consoleOutput = stringWriter.ToString();
+        Assert.That(!consoleOutput.Contains("Chuck Norris"));
+    }
+    /*
+    {
+        var jokeService = new Mock<IJokerJokes>();
         jokeService.Setup(s => s.GetJoke()).Returns("This is a joke");
         var outPut = new Mock<IJokeOutput>();
 
@@ -83,5 +102,5 @@ public class JesterTests
             string consoleOutput = stringWriter.ToString();
             Assert.That(!consoleOutput.Contains("Chuck Norris"));
         }
-    }
+    }*/
 }
