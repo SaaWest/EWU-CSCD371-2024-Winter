@@ -27,8 +27,8 @@ public class JesterTests
     public void SetIJokerJokes_Success()
     {
         // Arrange
-        var jester = new Jester(new JokeService(), new OutputJoke());
-        var jokerJokesMock = new Mock<IJokerJokes>();
+        Jester jester = new(new JokeService(), new OutputJoke());
+        Mock<IJokerJokes> jokerJokesMock = new();
 
         // Act
         jester.IJoker = jokerJokesMock.Object;
@@ -41,8 +41,8 @@ public class JesterTests
     public void SetIJokeOutput_Success()
     {
         // Arrange
-        var jester = new Jester(new JokeService(), new OutputJoke());
-        var jokeOutputMock = new Mock<IJokeOutput>();
+        Jester jester = new(new JokeService(), new OutputJoke());
+        Mock<IJokeOutput> jokeOutputMock = new();
 
         // Act
         jester.IJokeOutput = jokeOutputMock.Object;
@@ -54,11 +54,11 @@ public class JesterTests
     [Test]
     public void TellJoke_JokeOutput()
     {
-        var jokeService = new Mock<IJokerJokes>();
+        Mock<IJokerJokes> jokeService = new();
         jokeService.Setup(s => s.GetJoke()).Returns("This is a joke");
-        var outPut = new Mock<IJokeOutput>();
+        Mock<IJokeOutput> outPut = new();
 
-        var jester = new Jester(jokeService.Object, outPut.Object);
+        Jester jester = new(jokeService.Object, outPut.Object);
         jester.TellJoke();
 
         jokeService.Verify(s => s.GetJoke(), Times.Once);
@@ -69,14 +69,14 @@ public class JesterTests
     [Test]
     public void TellTenJokes_NoChuckNorris_Success()
     {
-        var jokeService = new Mock<IJokerJokes>();
+        Mock<IJokerJokes> jokeService = new();
         jokeService.SetupSequence(s => s.GetJoke())
                 .Returns("Chuck Norris")
                 .Returns("Still Chuck Norris")
                 .Returns("This is a joke");
 
-        var outPut = new Mock<IJokeOutput>();
-        var jester = new Jester(jokeService.Object, outPut.Object);
+        Mock<IJokeOutput> outPut = new();
+        Jester jester = new(jokeService.Object, outPut.Object);
         using StringWriter stringWriter = new();
         Console.SetOut(stringWriter);
         jester.TellJoke();
@@ -86,21 +86,4 @@ public class JesterTests
         string consoleOutput = stringWriter.ToString();
         Assert.That(!consoleOutput.Contains("Chuck Norris"));
     }
-    /*
-    {
-        var jokeService = new Mock<IJokerJokes>();
-        jokeService.Setup(s => s.GetJoke()).Returns("This is a joke");
-        var outPut = new Mock<IJokeOutput>();
-
-        var jester = new Jester(jokeService.Object, outPut.Object);
-
-        using StringWriter stringWriter = new();
-        Console.SetOut(stringWriter);
-        for (int i = 0; i < 10; i++)
-        {
-            jester.TellJoke();
-            string consoleOutput = stringWriter.ToString();
-            Assert.That(!consoleOutput.Contains("Chuck Norris"));
-        }
-    }*/
 }
