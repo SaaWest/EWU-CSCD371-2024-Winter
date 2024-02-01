@@ -9,12 +9,12 @@ public class OutputJokeTests
     [Test]
     public void OutputJoke_toConsole()
     {
-        OutputJoke outputJoke = new OutputJoke();
+        OutputJoke outputJoke = new();
         string aJoke = "This is a joke";
-        using var stringWriter = new StringWriter();
+        using StringWriter stringWriter = new();
         Console.SetOut(stringWriter);
         outputJoke.Output(aJoke);
-        var writeJoke = stringWriter.ToString();
+        string writeJoke = stringWriter.ToString();
         Assert.That(aJoke + Environment.NewLine == writeJoke);
     }
 }
