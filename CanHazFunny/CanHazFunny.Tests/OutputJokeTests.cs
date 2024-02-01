@@ -9,8 +9,8 @@ public class OutputJokeTests
     [Test]
     public void OutputJoke_toConsole()
     {
-        var outputJoke = new OutputJoke();
-        var aJoke = "This is a joke";
+        OutputJoke outputJoke = new OutputJoke();
+        string aJoke = "This is a joke";
         using var stringWriter = new StringWriter();
         Console.SetOut(stringWriter);
         outputJoke.Output(aJoke);
