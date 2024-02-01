@@ -4,6 +4,7 @@ using NUnit.Framework;
 using Moq;
 using Assert = NUnit.Framework.Assert;
 using System.IO;
+using System.Diagnostics.CodeAnalysis;
 
 namespace CanHazFunny.Tests;
 [TestClass]
@@ -20,6 +21,34 @@ public class JesterTests
     public void Constructor_TellJoke_Null()
     {
         Assert.Throws<ArgumentNullException>(() => new Jester(new JokeService(), null!));
+    }
+
+    [Test]
+    public void SetIJokerJokes_Success()
+    {
+        // Arrange
+        var jester = new Jester(new JokeService(), new OutputJoke());
+        var jokerJokesMock = new Mock<IJokerJokes>();
+
+        // Act
+        jester.IJoker = jokerJokesMock.Object;
+
+        // Assert
+        Assert.That(jokerJokesMock.Object == jester.IJoker);
+    }
+
+    [Test]
+    public void SetIJokeOutput_Success()
+    {
+        // Arrange
+        var jester = new Jester(new JokeService(), new OutputJoke());
+        var jokeOutputMock = new Mock<IJokeOutput>();
+
+        // Act
+        jester.IJokeOutput = jokeOutputMock.Object;
+
+        // Assert
+        Assert.That(jokeOutputMock.Object == jester.IJokeOutput);
     }
 
     [Test]

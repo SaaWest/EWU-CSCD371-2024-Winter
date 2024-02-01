@@ -8,10 +8,13 @@ public class Jester(IJokerJokes jokerJokes, IJokeOutput jokeOutput)
 
     public void TellJoke()
     {
-        string joke = IJoker.GetJoke();
+        string joke;
 
-        while (joke.Contains("Chuck Norris"))
-        { joke = IJoker.GetJoke(); }
+        do
+        { 
+            joke = IJoker.GetJoke(); 
+        }
+        while (joke.Contains("Chuck Norris"));
         IJokeOutput.Output(joke);
     }
 }
