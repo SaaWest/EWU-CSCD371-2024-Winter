@@ -5,7 +5,7 @@ namespace CanHazFunny.Tests;
 public class JokeServiceTests
 {
     [Test]
-    public void GetJoke_ReturnJoke()
+    public void GetJoke_ReturnJoke_NotNull()
     {
         JokeService jokeService = new();
         string joke = jokeService.GetJoke();
