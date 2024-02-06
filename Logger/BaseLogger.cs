@@ -2,10 +2,9 @@
 
 // We do not implement ILogger here because you can
 // only have abstract static methods on interfaces.
-public abstract class BaseLogger
+public abstract class BaseLogger(string logSource)
 {
-    public string LogSource { get; }
-    public BaseLogger(string logSource) => LogSource = string.IsNullOrWhiteSpace(logSource)
+    public string LogSource { get; } = string.IsNullOrWhiteSpace(logSource)
             ? throw new ArgumentException($"'{nameof(logSource)}' cannot be null or whitespace.", nameof(logSource))
             : logSource;
 
