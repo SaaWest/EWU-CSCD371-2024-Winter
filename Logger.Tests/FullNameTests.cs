@@ -9,21 +9,21 @@ using System.Threading.Tasks;
 
 namespace Logger.Tests
 {
-    class FullNameTests
+    public class FullNameTests
     {
-        [TestClass]
-        public class FullName_Record_Tests()
-        {
-            [TestMethod]
-            [DataRow("Mike", "Rowe", "Soft")]
-            //[DataRow("Michael", "J", "Jordon")]
-            public void FullName_Record_Test(string "firstName", string? "middleName", string "lastName")
-            {
-                FullName fullName = new() { FirstName = firstName, MiddleName = middleName, LastName = lastName };
-                Assert.AreEqual(new {fullName.FirstName, fullname.MiddleName, fullname.lastName });
+        //[TestClass]
+        //public class FullName_Record_Tests()
+        //{
+        //    [TestMethod]
+        //    [DataRow("Mike", "Rowe", "Soft")]
+        //    //[DataRow("Michael", "J", "Jordon")]
+        //    public void FullName_Record_Test(string "firstName", string? "middleName", string "lastName")
+        //    {
+        //        FullName fullName = new() { FirstName = firstName, MiddleName = middleName, LastName = lastName };
+        //        Assert.AreEqual(new {fullName.FirstName, fullname.MiddleName, fullname.lastName });
 
-            }
-        }
+        //    }
+        //}
 
     }
 }

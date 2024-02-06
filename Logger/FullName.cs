@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logger
 {
-    internal record FullName
+    public record FullName
     {
     }
 }
