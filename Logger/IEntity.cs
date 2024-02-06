@@ -1,5 +1,6 @@
 ﻿namespace Logger;
 public interface IEntity
 {
-    Guid Id { set; }
+    Guid ID { set; }
+    string Name { set; get; }
 }
