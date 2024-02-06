@@ -1,0 +1,24 @@
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xunit;
+
+namespace Logger.Tests
+{
+    internal class FullNameTests
+    {
+        [TestClass]
+        public class FullName_Record_Tests()
+        {
+            [TestMethod]
+            public void FullName_Record_Test()
+            {
+
+            }
+        }
+
+    }
+}
