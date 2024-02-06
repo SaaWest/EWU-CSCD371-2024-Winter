@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Logger;
 
-public record BookRecord
+public record BookRecord : IEntity
 {
+    public Guid ID { init => throw new NotImplementedException(); }
+    public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 }
