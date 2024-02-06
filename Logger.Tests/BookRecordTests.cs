@@ -11,7 +11,7 @@ public class BookRecordTests
     [Fact]
     public void BookRecord_With_BookName_AuthorName_NotNull() 
     {
-        BookRecord book = new BookRecord("Do Robots Dream of Electric Sheep", "Philip K. Dick");
+        BookRecord book = new("Do Robots Dream of Electric Sheep", "Philip K. Dick");
         Assert.NotNull(book);
         Assert.Equal("Do Robots Dream of Electric Sheep", book.BookName);
         Assert.Equal("Philip K. Dick", book.AuthorName);

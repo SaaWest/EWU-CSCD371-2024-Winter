@@ -23,11 +23,10 @@ namespace Logger;
         
 
         }
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-        public string FirstName { get; set; }
+
+    public string FirstName { get; set; }
         public string LastName { get; set; }
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-        public string? MiddleName { get; set; }
+    public string? MiddleName { get; set; }
         
         public string Name { get { return FirstName + $"{(MiddleName != null ? " " + MiddleName + " " : " ")}" + LastName; } }  
         

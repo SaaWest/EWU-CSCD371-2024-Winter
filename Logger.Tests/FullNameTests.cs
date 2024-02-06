@@ -23,7 +23,7 @@ public class FullNameTests
             string firstName = "Mike";
             string middleName = "Rowe";
             string lastName = "Soft";
-            FullName fullName = new FullName(firstName, lastName, middleName);
+            FullName fullName = new(firstName, lastName, middleName);
               
             Assert.Equal("Mike Rowe Soft", fullName.Name);
                 //Assert.Equal(middleName, fullName.MiddleName);
@@ -40,7 +40,7 @@ public class FullNameTests
             string middleName = null!;
             string lastName = "Jordon";
 
-            FullName fullName = new FullName(firstName, lastName, middleName);
+            FullName fullName = new(firstName, lastName, middleName);
 
             Assert.Equal("Michael Jordon", fullName.Name);
                 //Assert.Equal(fullName.MiddleName, middleName);
