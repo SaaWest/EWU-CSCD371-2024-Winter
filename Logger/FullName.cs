@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Logger
-{
+namespace Logger;
+
+
     public record FullName
     {
-        //Fullname encompasses 
+        //Fullname encompasses three parts usually a first, middle and last name a constructor with 
+        //these three/two requirements is what is need when instantiate a new person
+        //Records are immutable and 
         public FullName(string firstName, string lastName, string? middleName = null)
         {
             FirstName = string.IsNullOrEmpty(firstName) ? throw new ArgumentNullException(nameof(firstName)) : firstName;
@@ -22,4 +25,3 @@ namespace Logger
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public string? MiddleName { get; set; }
     }
-}

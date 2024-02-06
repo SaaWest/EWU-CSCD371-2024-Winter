@@ -11,8 +11,6 @@ namespace Logger.Tests;
 
 public class FullNameTests
 {
-    class FullNameTests
-    {
         [TestClass]
         public class FullName_Record_Tests()
         {
@@ -39,7 +37,7 @@ public class FullNameTests
                 Assert.Equals(fullName.MiddleName, middleName);
                 Assert.Equals(fullName.FirstName, lastName);
 
-    //    }
-    //}
+            }
+        }
 
 }
