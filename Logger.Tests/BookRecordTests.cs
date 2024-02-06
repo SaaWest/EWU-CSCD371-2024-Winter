@@ -20,14 +20,14 @@ public class BookRecordTests
     [Fact]
     public void BookRecord_With_BookName_Null()
     {
-        Assert.Throws<NullReferenceException>(() => new BookRecord(null!, "Philip k. Dick"));
+        Assert.Throws<ArgumentNullException>(() => new BookRecord(null!, "Philip k. Dick"));
         
             
     }
     [Fact]
     public void BookRecord_With_AuthorName_Null()
     {
-        Assert.Throws<NullReferenceException>(() => new BookRecord("Do Robots Dream of Electric Sheep", null!));
+        Assert.Throws<ArgumentNullException>(() => new BookRecord("Do Robots Dream of Electric Sheep", null!));
 
     }
     

@@ -10,8 +10,8 @@ public record BookRecord : IEntity
 {
     public BookRecord(string bookName, string authorName)
     {
-        BookName = bookName ?? throw new NullReferenceException(nameof(bookName));
-        AuthorName = authorName ?? throw new NullReferenceException(nameof(authorName));
+        BookName = bookName ?? throw new ArgumentNullException(nameof(bookName));
+        AuthorName = authorName ?? throw new ArgumentNullException(nameof(authorName));
         
     }
     public string BookName { get; set; }
