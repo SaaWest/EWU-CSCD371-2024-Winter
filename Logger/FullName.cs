@@ -8,9 +8,13 @@ namespace Logger
 {
     public record FullName
     {
-        public FullName(string firstName, string? middleName, string lastName)
+        //Fullname encompasses 
+        public FullName(string firstName, string lastName, string? middleName = null)
         {
-        
+            FirstName = string.IsNullOrEmpty(firstName) ? throw new ArgumentNullException(nameof(firstName)) : firstName;
+            LastName = string.IsNullOrEmpty(lastName) ? throw new ArgumentNullException(nameof(lastName)) : lastName;
+            MiddleName = middleName;
+
         }
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public string FirstName { get; set; }

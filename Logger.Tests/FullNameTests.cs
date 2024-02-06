@@ -16,15 +16,26 @@ namespace Logger.Tests
         {
             [TestMethod]
             [DataRow("Mike", "Rowe", "Soft")]
-            [DataRow("Michael", "J", "Jordon")]
-            public void FullName_Record_Test(string firstName, string middleName, string lastName)
+            //[DataRow("Michael", "B", "Jordon")]
+            public void FullName_Record_NotNull(string firstName, string middleName, string lastName)
             {
-                FullName fullName = new() { FirstName = firstName, MiddleName = middleName, LastName = lastName };
+                FullName fullName = new FullName(firstName, middleName, lastName);
               
-                Assert.IsTrue(fullName.FirstName.Equals(firstName));
-                Assert.IsTrue(fullName.MiddleName.Equals(middleName));
-                Assert.IsTrue(fullName.FirstName.Equals(lastName));
+                Assert.Equals(fullName.FirstName, firstName);
+                Assert.Equals(fullName.MiddleName, middleName);
+                Assert.Equals(fullName.FirstName, lastName);
 
+
+            }
+            [TestMethod]
+            [DataRow("Micheal", null, "Jordon")]
+            public void FullName_Record_WithNull(string firstName, string middleName, string lastName)
+            {
+                FullName fullName = new FullName(firstName, middleName, lastName);
+
+                Assert.Equals(fullName.FirstName, firstName);
+                Assert.Equals(fullName.MiddleName, middleName);
+                Assert.Equals(fullName.FirstName, lastName);
 
             }
         }
