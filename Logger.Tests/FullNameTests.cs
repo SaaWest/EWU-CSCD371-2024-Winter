@@ -7,7 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 //using Xunit;
 
-namespace Logger.Tests
+namespace Logger.Tests;
+
+public class FullNameTests
 {
     class FullNameTests
     {
@@ -37,8 +39,7 @@ namespace Logger.Tests
                 Assert.Equals(fullName.MiddleName, middleName);
                 Assert.Equals(fullName.FirstName, lastName);
 
-            }
-        }
+    //    }
+    //}
 
-    }
 }

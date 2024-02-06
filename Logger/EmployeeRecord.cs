@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace Logger;
 
-public abstract class BaseEntity : IEntity
+public record EmployeeRecord
 {
-    public Guid ID { get; init; }
-    public abstract string Name { get; set; }
 }
