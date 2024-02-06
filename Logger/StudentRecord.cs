@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Logger
+namespace Logger;
+
+public record StudentRecord
 {
-    public record StudentRecord
-    {
-    }
 }
