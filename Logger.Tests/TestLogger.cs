@@ -4,10 +4,10 @@ public class TestLogger(string logSource) : BaseLogger(logSource), ILogger
 {
     public List<(LogLevel LogLevel, string Message)> LoggedMessages { get; } = new List<(LogLevel, string)>();
 
-    public static ILogger CreateLogger(in TestLoggerConfiguration configuration) => 
+    public static ILogger CreateLogger(in TestLoggerConfiguration configuration) =>
         new TestLogger(configuration.LogSource);
 
-    static ILogger ILogger.CreateLogger(in ILoggerConfiguration configuration) => 
+    static ILogger ILogger.CreateLogger(in ILoggerConfiguration configuration) =>
         configuration is TestLoggerConfiguration testLoggerConfiguration
             ? CreateLogger(testLoggerConfiguration)
             : throw new ArgumentException("Invalid configuration type", nameof(configuration));

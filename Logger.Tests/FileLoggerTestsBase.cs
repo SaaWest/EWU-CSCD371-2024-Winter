@@ -6,7 +6,7 @@ public class FileLoggerTestsBase : IDisposable
 
     protected string FilePath { get; set; }
     protected FileLogger Logger { get; set; }
-    
+
     public FileLoggerTestsBase()
     {
         FilePath = Path.GetTempFileName();
