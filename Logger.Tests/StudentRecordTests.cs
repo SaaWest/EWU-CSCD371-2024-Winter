@@ -1,5 +1,4 @@
-﻿//using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,22 +6,21 @@ using System.Threading.Tasks;
 using Xunit;
 
 namespace Logger.Tests;
-
-public class EmployeeRecordTests
-{
-    [Fact]
-    public void EmployeeRecord_Name_NotNull()
+public class StudentRecordTests
     {
-        EmployeeRecord employee = new EmployeeRecord("Mike", "Soft", "Rowe");
-        Assert.Equal("Mike Rowe Soft", employee.writeName);
-       
+    [Fact]
+    public void StudentRecord_Name_NotNull()
+    {
+        EmployeeRecord student = new EmployeeRecord("Mike", "Soft", "Rowe");
+        Assert.Equal("Mike Rowe Soft", student.writeName);
+
     }
     [Fact]
     public void EmployeeRecord_MiddleName_Null()
     {
-        EmployeeRecord employee = new EmployeeRecord("Mike", "Soft", null!);
-        Assert.Null(employee.MiddleName);
-        Assert.Equal("Mike Soft", employee.writeName);
+        EmployeeRecord student = new EmployeeRecord("Mike", "Soft", null!);
+        Assert.Null(student.MiddleName);
+        Assert.Equal("Mike Soft", student.writeName);
 
     }
     [Fact]
@@ -30,7 +28,6 @@ public class EmployeeRecordTests
     {
         string firstName = "Steven";
         Assert.Throws<ArgumentNullException>(() => new EmployeeRecord(firstName, null!));
-
 
 
     }
@@ -41,6 +38,5 @@ public class EmployeeRecordTests
         Assert.Throws<ArgumentNullException>(() => new EmployeeRecord(null!, lastName));
 
     }
-
 }
 
