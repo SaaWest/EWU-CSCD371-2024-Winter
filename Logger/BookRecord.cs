@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Logger;
+﻿namespace Logger;
 
 public record BookRecord : IEntity
 {
@@ -12,7 +6,7 @@ public record BookRecord : IEntity
     {
         BookName = bookName ?? throw new ArgumentNullException(nameof(bookName));
         AuthorName = authorName ?? throw new ArgumentNullException(nameof(authorName));
-        
+
     }
     public string BookName { get; set; }
     public string AuthorName { get; set; }

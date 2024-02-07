@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
+﻿using Xunit;
 
 namespace Logger.Tests;
 public class BookRecordTests
 {
     [Fact]
-    public void BookRecord_With_BookName_AuthorName_NotNull() 
+    public void BookRecord_With_BookName_AuthorName_NotNull()
     {
         BookRecord book = new("Do Robots Dream of Electric Sheep", "Philip K. Dick");
         Assert.NotNull(book);
@@ -21,8 +16,8 @@ public class BookRecordTests
     public void BookRecord_With_BookName_Null()
     {
         Assert.Throws<ArgumentNullException>(() => new BookRecord(null!, "Philip k. Dick"));
-        
-            
+
+
     }
     [Fact]
     public void BookRecord_With_AuthorName_Null()
@@ -30,7 +25,7 @@ public class BookRecordTests
         Assert.Throws<ArgumentNullException>(() => new BookRecord("Do Robots Dream of Electric Sheep", null!));
 
     }
-    
+
 
 }
 
