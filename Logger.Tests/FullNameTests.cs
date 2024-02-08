@@ -42,7 +42,7 @@ public class FullNameTests
 
         }
         [Fact]
-        public void FullName_FirstName_IsNull()
+        public void FullName_MissingLastName_IsNull()
         {
             string firstName = "Steven";
             Assert.Throws<ArgumentNullException>(() => new FullName(firstName, null!));
@@ -51,7 +51,7 @@ public class FullNameTests
 
         }
         [Fact]
-        public void FullName_LastName_IsNull()
+        public void FullName_MissingFirstName_IsNull()
         {
             string lastName = "Smith";
             Assert.Throws<ArgumentNullException>(() => new FullName(null!, lastName));
