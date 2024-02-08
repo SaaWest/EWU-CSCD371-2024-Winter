@@ -11,14 +11,14 @@ public class StudentRecordTests
     [Fact]
     public void StudentRecord_Name_NotNull()
     {
-        EmployeeRecord student = new EmployeeRecord("Mike", "Soft", "Rowe");
+        var student = new StudentRecord("Mike", "Soft", "Rowe");
         Assert.Equal("Mike Rowe Soft", student.writeName);
 
     }
     [Fact]
     public void EmployeeRecord_MiddleName_Null()
     {
-        EmployeeRecord student = new EmployeeRecord("Mike", "Soft", null!);
+        var student = new StudentRecord("Mike", "Soft", null!);
         Assert.Null(student.MiddleName);
         Assert.Equal("Mike Soft", student.writeName);
 

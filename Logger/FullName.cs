@@ -14,9 +14,9 @@ public record FullName
         MiddleName = middleName;
     }
 
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string? MiddleName { get; set; }
+    public string FirstName { get; }
+    public string LastName { get; }
+    public string? MiddleName { get; }
 
     public string Name { get { return FirstName + $"{(MiddleName != null ? " " + MiddleName + " " : " ")}" + LastName; } }
 
