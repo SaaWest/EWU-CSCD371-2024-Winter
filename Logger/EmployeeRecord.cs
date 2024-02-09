@@ -8,10 +8,9 @@ public record EmployeeRecord : BaseEntity
         FirstName = string.IsNullOrEmpty(firstName) ? throw new ArgumentNullException(nameof(firstName)) : firstName;
         LastName = string.IsNullOrEmpty(lastName) ? throw new ArgumentNullException(nameof(lastName)) : lastName;
         MiddleName = middleName;
-
     }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string? MiddleName { get; set; }
-    public override string Name { get { return FirstName + $"{(MiddleName != null ? " " + MiddleName + " " : " ")}" + LastName; } }
+    public override string Name => FirstName + $"{(MiddleName != null ? " " + MiddleName + " " : " ")}" + LastName;
 }

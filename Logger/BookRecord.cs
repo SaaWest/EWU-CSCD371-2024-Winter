@@ -7,8 +7,6 @@ public record BookRecord : BaseEntity
     {
         BookName = bookName ?? throw new ArgumentNullException(nameof(bookName));
         AuthorName = authorName ?? throw new ArgumentNullException(nameof(authorName));
-  
-        
     }
     public string BookName { get; set; }
     public string AuthorName { get; set; }
