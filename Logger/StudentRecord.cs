@@ -1,8 +1,8 @@
 ﻿namespace Logger;
 
-public record StudentRecord : IEntity
+public record StudentRecord : BaseEntity
 {
-    //implicit declaration because a student should have access to their name and student id
+    //implicit declaration because this is an 'is a' relationship and there is no conflict with the implementation
     public StudentRecord(string firstName, string lastName, string? middleName = null)
     {
         FirstName = string.IsNullOrEmpty(firstName) ? throw new ArgumentNullException(nameof(firstName)) : firstName;
@@ -13,7 +13,7 @@ public record StudentRecord : IEntity
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string? MiddleName { get; set; }
-    public string writeName { get { return FirstName + $"{(MiddleName != null ? " " + MiddleName + " " : " ")}" + LastName; } }
-    public Guid ID { init => throw new NotImplementedException(); }
-    public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public override string Name { get { return FirstName + $"{(MiddleName != null ? " " + MiddleName + " " : " ")}" + LastName; } }
 }
+
+

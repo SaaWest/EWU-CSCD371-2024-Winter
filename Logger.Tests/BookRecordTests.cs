@@ -12,6 +12,13 @@ public class BookRecordTests
         Assert.Equal("Philip K. Dick", book.AuthorName);
     }
     [Fact]
+    public void BookRecord_NameProperty_NotNull()
+    {
+        BookRecord book = new("Do Robots Dream of Electric Sheep", "Philip K. Dick");
+        Assert.NotNull(book);
+        Assert.Equal("Do Robots Dream of Electric Sheep Philip K. Dick", book.Name);
+    }
+    [Fact]
     public void BookRecord_test_Guid()
     {
         BookRecord book = new("Do Robots Dream of Electric Sheep", "Philip K. Dick");

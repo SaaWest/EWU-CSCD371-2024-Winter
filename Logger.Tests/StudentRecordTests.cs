@@ -12,7 +12,7 @@ public class StudentRecordTests
     public void StudentRecord_Name_NotNull()
     {
         var student = new StudentRecord("Mike", "Soft", "Rowe");
-        Assert.Equal("Mike Rowe Soft", student.writeName);
+        Assert.Equal("Mike Rowe Soft", student.Name);
 
     }
     [Fact]
@@ -20,7 +20,7 @@ public class StudentRecordTests
     {
         var student = new StudentRecord("Mike", "Soft", null!);
         Assert.Null(student.MiddleName);
-        Assert.Equal("Mike Soft", student.writeName);
+        Assert.Equal("Mike Soft", student.Name);
 
     }
     [Fact]

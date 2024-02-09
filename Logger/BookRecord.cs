@@ -1,8 +1,8 @@
 ﻿namespace Logger;
 
-public record BookRecord : IEntity
+public record BookRecord : BaseEntity
 {
-    //implicit declaration because the reader should have access to the Name and Id
+    //implicit declaration because this is an 'is a' relationship and there is no conflict with the implementation
     public BookRecord(string bookName, string authorName)
     {
         BookName = bookName ?? throw new ArgumentNullException(nameof(bookName));
@@ -12,6 +12,5 @@ public record BookRecord : IEntity
     }
     public string BookName { get; set; }
     public string AuthorName { get; set; }
-    public Guid ID { init => throw new NotImplementedException(); }
-    public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public override string Name { get { return BookName +" "+  AuthorName; } }
 }

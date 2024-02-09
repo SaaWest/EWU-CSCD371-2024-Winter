@@ -14,7 +14,7 @@ public class EmployeeRecordTests
     public void EmployeeRecord_Name_NotNull()
     {
         var employee = new EmployeeRecord("Mike", "Soft", "Rowe");
-        Assert.Equal("Mike Rowe Soft", employee.writeName);
+        Assert.Equal("Mike Rowe Soft", employee.Name);
        
     }
     [Fact]
@@ -22,7 +22,7 @@ public class EmployeeRecordTests
     {
         var employee = new EmployeeRecord("Mike", "Soft", null!);
         Assert.Null(employee.MiddleName);
-        Assert.Equal("Mike Soft", employee.writeName);
+        Assert.Equal("Mike Soft", employee.Name);
 
     }
     [Fact]

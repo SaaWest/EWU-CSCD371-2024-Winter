@@ -1,8 +1,8 @@
 ﻿namespace Logger;
 
-public record EmployeeRecord : IEntity
+public record EmployeeRecord : BaseEntity
 {
-    //implicit declaration because employees should have access to their name and employee id (GUID)
+    //implicit declaration because this is an 'is a' relationship and there is no conflict with the implementation
     public EmployeeRecord(string firstName, string lastName, string? middleName = null )
     {
         FirstName = string.IsNullOrEmpty(firstName) ? throw new ArgumentNullException(nameof(firstName)) : firstName;
@@ -13,7 +13,5 @@ public record EmployeeRecord : IEntity
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string? MiddleName { get; set; }
-    public string writeName { get { return FirstName + $"{(MiddleName != null ? " " + MiddleName + " " : " ")}" + LastName; } }
-    public Guid ID { init => throw new NotImplementedException(); }
-    public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public override string Name { get { return FirstName + $"{(MiddleName != null ? " " + MiddleName + " " : " ")}" + LastName; } }
 }
