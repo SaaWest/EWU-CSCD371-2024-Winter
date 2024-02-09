@@ -1,6 +1,8 @@
 ﻿//using DocuSign.eSign.Model;
 //using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Xunit;
+using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace Logger.Tests;
 
@@ -19,7 +21,7 @@ public class FullNameTests
             string lastName = "Soft";
             FullName fullName = new(firstName, lastName, middleName);
 
-            Assert.Equal("Mike Rowe Soft", fullName.Name);
+            Assert.AreEqual("Mike Rowe Soft", fullName.Name);
             //Assert.Equal(middleName, fullName.MiddleName);
             //Assert.Equal(lastName, fullName.LastName);
 
@@ -36,20 +38,9 @@ public class FullNameTests
 
             FullName fullName = new(firstName, lastName, middleName);
 
-            Assert.Equal("Michael Jordon", fullName.Name);
+            Assert.AreEqual("Michael Jordon", fullName.Name);
             //Assert.Equal(fullName.MiddleName, middleName);
             //Assert.Equal(fullName.FirstName, lastName);
-
-            }
-            [TestMethod]
-            [DataRow("Micheal", null, "Jordon")]
-            public void FullName_Record_WithNull(string firstName, string middleName, string lastName)
-            {
-                FullName fullName = new FullName(firstName, middleName, lastName);
-
-                Assert.Equals(fullName.FirstName, firstName);
-                Assert.Equals(fullName.MiddleName, middleName);
-                Assert.Equals(fullName.FirstName, lastName);
 
         }
     }

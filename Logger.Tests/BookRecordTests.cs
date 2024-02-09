@@ -21,8 +21,8 @@ public class BookRecordTests
     [Fact]
     public void BookRecord_test_Guid()
     {
-        BookRecord book = new("Do Robots Dream of Electric Sheep", "Philip K. Dick");
-        
+        _ = new BookRecord("Do Robots Dream of Electric Sheep", "Philip K. Dick");
+
     }
 
     [Fact]
