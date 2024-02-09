@@ -1,27 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Logger;
+﻿namespace Logger;
 
 
-    public record FullName
+public record class FullName
+{
+    //Fullname encompasses three parts usually a first, middle and last name a constructor with 
+    //these three/two requirements is what is need when instantiate a new person
+    //Records are immutable and so FullName should reflect that as first, middle, and last names do
+    //not change in real life unless some legal entity supercedes that.
+    //FullName is a reference type since the object itself is refering to the data its 'pointing' to
+    public FullName(string firstName, string lastName, string? middleName = null)
     {
-        //Fullname encompasses three parts usually a first, middle and last name a constructor with 
-        //these three/two requirements is what is need when instantiate a new person
-        //Records are immutable and 
-        public FullName(string firstName, string lastName, string? middleName = null)
-        {
-            FirstName = string.IsNullOrEmpty(firstName) ? throw new ArgumentNullException(nameof(firstName)) : firstName;
-            LastName = string.IsNullOrEmpty(lastName) ? throw new ArgumentNullException(nameof(lastName)) : lastName;
-            MiddleName = middleName;
-
-        }
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-        public string? MiddleName { get; set; }
+        FirstName = string.IsNullOrEmpty(firstName) ? throw new ArgumentNullException(nameof(firstName)) : firstName;
+        LastName = string.IsNullOrEmpty(lastName) ? throw new ArgumentNullException(nameof(lastName)) : lastName;
+        MiddleName = middleName;
     }
+
+    public string FirstName { get; }
+    public string LastName { get; }
+    public string? MiddleName { get; }
+
+    public string Name { get { return FirstName + $"{(MiddleName != null ? " " + MiddleName + " " : " ")}" + LastName; } }
+
+}

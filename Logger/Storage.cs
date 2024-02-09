@@ -1,8 +1,8 @@
 ﻿namespace Logger;
 public class Storage
 {
-    private HashSet<IEntity> Entities { get; } = new();
-    
+    private HashSet<IEntity> Entities { get; } = [];
+
     public void Add(IEntity item)
     {
         Entities.Add(item);
@@ -17,10 +17,10 @@ public class Storage
     {
         return Entities.Contains(item);
     }
-    
+
     public IEntity? Get(Guid expectedGuid)
     {
-        return Entities.FirstOrDefault(entity => 
+        return Entities.FirstOrDefault(entity =>
         {
             dynamic dynamicEntity = entity;
             return dynamicEntity.Id == expectedGuid;

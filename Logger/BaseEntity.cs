@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Logger;
 
-public abstract class BaseEntity : IEntity
+public abstract record class BaseEntity : IEntity
 {
-    public Guid ID { get; init; }
-    public abstract string Name { get; set; }
+    // Both Name and ID are implicit as BaseEntity 'can do' relationship with IEntity. It would not hurt to make ID explicit but by convention of the relationship implicit is chosen but because name
+    // presumably used in multiple record classes name is chosen as an abstract implicit. 
+    public abstract string Name { get; }
+    public Guid ID { init => throw new NotImplementedException(); }
 }
