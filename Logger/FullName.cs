@@ -1,7 +1,7 @@
 ﻿namespace Logger;
 
 
-public record FullName
+public record  class FullName
 {
     //Fullname encompasses three parts usually a first, middle and last name a constructor with 
     //these three/two requirements is what is need when instantiate a new person
