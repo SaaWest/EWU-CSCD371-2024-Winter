@@ -19,7 +19,7 @@ public class NodeTests
         //Assert.Null(myNode.Prev);
     }
     [Fact]
-    public void NodeTests_FirstNode_Append_SecondNode()
+    public void NodeTests_FirstNode_Append_SecondNode_Unique()
     {
         var myNode = new Node(4);
         var myNode2 = new Node(12);
@@ -29,6 +29,16 @@ public class NodeTests
         //Assert.Null(myNode.Prev);
         Assert.NotNull(myNode2.Value);
         //Assert.NotNull(myNode2.Prev);
+    }
+    [Fact]
+    public void NodeTests_FirstNode_Append_SecondNode_NotUnique()
+    {
+        var myNode = new Node(4);
+        var myNode2 = new Node(4);
+        myNode.Append(myNode2);
+        Assert.NotNull(myNode.Value);
+        Assert.NotNull(myNode2.Value);
+
     }
     [Fact]
     public void ToString_Override_Tests()
@@ -51,6 +61,10 @@ public class NodeTests
     public void NodeTests_ExistMethod()
     {
         var myNode = new Node(12);
+        var myNode2 = new Node(12);
+        myNode.Append(myNode2);
+        
+        
     }
 }
 
