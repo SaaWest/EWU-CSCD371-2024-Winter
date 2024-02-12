@@ -5,26 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GenericsHomework;
-public class Node
+public class Node<T>
 {
-    public Node _Next;
+    public Node<T> _Next;
     //public Node _Previous;
-    public Node(object value)
+    public Node(T value)
     {
         Value = value;
         //Prev = _Previous;
-        Next = _Next!;
+        Next = this;
     }   
     public object Value { get; }
     //public Node? Prev { get; set; }
-    public Node Next
+    public Node<T> Next
     {
         get{ return _Next!;}
         private set { _Next = value; }
         
     }
 
-    public override string ToString()
+    /*public override string ToString()
     {
         Node current = this;
         string outPut = current.Value + " ";
@@ -34,8 +34,8 @@ public class Node
             outPut += current.Value + " ";
         }
         return outPut;
-    }
-    public void Append(object value)
+    }*/
+    public void Append(T value)
     {
         if (Exists(value))
         {
@@ -45,34 +45,36 @@ public class Node
         {
             if (Next != this)
             {
-                Node newNode = new Node(value);
+                Node<T> newNode = new Node<T>(value);
                 newNode.Next = Next;
                 Next = newNode;
             }
             else
             {
-                Next = new Node(value);
+                Next = new Node<T>(value);
             }
         
         }
     }
-    public void Clear(object value)
+    public void Clear()
     {
         //With the clear method because none of the the disconnected nodes are being referenced we don't have to worry about garbage collection
         //If Clear() is never called, as long as the list isn't too big then we shouldn't worry about garbage collection
         //however if the list is too big then we need to handle garbage collection otherwise we will get a stack overflow
 
-        Node temp = new Node(value);
-        if(Next != null)
+        Next = this;
+        //temp.Next = this;
+        /*if (temp.Next != null)
         {
             temp.Next = this;
         }
         else
         {
             Next = temp;
-        }
+        }*/
+  
     }
-    public bool Exists(object value)
+    public bool Exists(T value)
     {
         var current = this;
         do
