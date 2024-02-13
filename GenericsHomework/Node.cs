@@ -26,15 +26,19 @@ public class Node<T>
 
     public override string ToString()
     {
+        if(Value is null)
+        {
+            throw new ArgumentNullException(nameof(Value));
+        }
 
-        return Value.ToString();
+        return Value.ToString()!;
     }
     public void Append(T value)
     {
         Node<T> current = this;
         if (Exists(value))
         {
-            throw new ApplicationException("Value already exist");
+            throw new ApplicationException("Value already exist "+ (nameof(value));
         }
         if (current.Next != current)
         { 
