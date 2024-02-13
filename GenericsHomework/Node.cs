@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace GenericsHomework;
 public class Node<T>
 {
-
+    //Node
   
     public Node(T value)
     {
@@ -38,7 +38,7 @@ public class Node<T>
         Node<T> current = this;
         if (Exists(value))
         {
-            throw new ApplicationException("Value already exist "+ (nameof(value));
+            throw new ApplicationException("Value already exist "+ (nameof(value)));
         }
         if (current.Next != current)
         { 
