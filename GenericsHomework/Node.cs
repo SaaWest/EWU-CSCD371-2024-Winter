@@ -28,7 +28,7 @@ public class Node<T>
     {
         if(Value is null)
         {
-            throw new ArgumentNullException(nameof(Value));
+            throw new ArgumentException(nameof(Value));
         }
 
         return Value.ToString()!;
@@ -38,7 +38,7 @@ public class Node<T>
         Node<T> current = this;
         if (Exists(value))
         {
-            throw new ApplicationException("Value already exist "+ (nameof(value)));
+            throw new ArgumentException("Value already exist "+ (nameof(value)));
         }
         if (current.Next != current)
         { 
