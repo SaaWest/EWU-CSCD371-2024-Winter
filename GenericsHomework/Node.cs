@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace GenericsHomework;
 public class Node<T>
 {
-    public Node<T> _Next;
+
   
     public Node(T value)
     {
@@ -19,8 +19,8 @@ public class Node<T>
     
     public Node<T> Next
     {
-        get{ return _Next!;}
-        private set { _Next = value; }
+        get;
+        private set;
         
     }
 
