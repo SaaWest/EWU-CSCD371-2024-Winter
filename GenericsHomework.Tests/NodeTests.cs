@@ -65,7 +65,7 @@ public class NodeTests
     {
         Node<string> myNode = new(null!);
 
-        Assert.Throws<System.ArgumentException>(myNode.ToString);
+        Assert.Throws<ArgumentException>(myNode.ToString);
     }
 
     [Fact]
