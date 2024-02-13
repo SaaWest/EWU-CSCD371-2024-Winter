@@ -8,15 +8,15 @@ namespace GenericsHomework;
 public class Node<T>
 {
     public Node<T> _Next;
-    //public Node _Previous;
+  
     public Node(T value)
     {
         Value = value;
-        //Prev = _Previous;
+        
         Next = this;
     }   
-    public object Value { get; }
-    //public Node? Prev { get; set; }
+    public T Value { get; }
+    
     public Node<T> Next
     {
         get{ return _Next!;}
@@ -26,14 +26,8 @@ public class Node<T>
 
     public override string ToString()
     {
-        Node<T> current = this;
-        string outPut = current.Value + " ";
-        while (current.Next != null) 
-        {
-            current = current.Next;
-            outPut += current.Value + " ";
-        }
-        return outPut;
+
+        return Value.ToString();
     }
     public void Append(T value)
     {
@@ -42,7 +36,7 @@ public class Node<T>
         {
             throw new ApplicationException("Value already exist");
         }
-        if (current.Next != this)
+        if (current.Next != current)
         { 
             current = current.Next;
              
@@ -67,11 +61,11 @@ public class Node<T>
         Node<T> current = this;
         do
         {
-            if (current.Value.Equals(value))
+            if (current.Value!.Equals(value))
             {
                 return true;
             }
-        }while(current.Next != this);
+        }while(current != this);
 
         return false;
     }

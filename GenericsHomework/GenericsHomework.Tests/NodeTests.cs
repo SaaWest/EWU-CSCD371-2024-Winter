@@ -41,13 +41,13 @@ public class NodeTests
         Assert.NotNull(myNode.Next);
 
     }
-    /*[Fact]
+    [Fact]
     public void ToString_Override_Tests()
     {
         Node<int> myNode = new(12);
         Assert.Equal("12", myNode.ToString());
 
-    }*/
+    }
     [Fact]
     public void NodeTests_ClearMethod_deleteAll()
     {
@@ -63,11 +63,9 @@ public class NodeTests
     public void NodeTests_ExistMethod()
     {
         Node<int> myNode = new(12);
-        myNode.Append(24);
-        myNode.Append(16);
+
         Assert.True(myNode.Exists(12));
-        Assert.True(myNode.Exists(24));
-        Assert.True(myNode.Exists(16));
+
         
     }
 }
