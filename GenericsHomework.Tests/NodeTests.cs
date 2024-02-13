@@ -59,5 +59,12 @@ public class NodeTests
 
         Assert.True(myNode.Exists(12));
     }
+
+    [Fact]
+    public void NodeTests_NullToString_Failure()
+    {
+        Node<string> myNode = new(null!);
+        Assert.Throws<System.ArgumentException>(myNode.ToString);
+    }
 }
 
