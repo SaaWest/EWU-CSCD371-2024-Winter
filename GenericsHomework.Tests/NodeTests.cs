@@ -64,7 +64,16 @@ public class NodeTests
     public void NodeTests_NullToString_Failure()
     {
         Node<string> myNode = new(null!);
+
         Assert.Throws<System.ArgumentException>(myNode.ToString);
+    }
+
+    [Fact]
+    public void NodeTests_AppendSameValue_Failure()
+    {
+        Node<string> myNode = new("2");
+
+        Assert.Throws<ArgumentException>(() => myNode.Append("2"));
     }
 }
 
