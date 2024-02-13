@@ -28,17 +28,17 @@ public class Node<T>
     {
         if (Value is null)
         {
-            throw new ApplicationException("value " +nameof(Value));
+            throw new ArgumentException("value " +nameof(Value));
         }
 
-        return Value.ToString();
+        return Value.ToString()!;
     }
     public void Append(T value)
     {
         Node<T> current = this;
         if (Exists(value))
         {
-            throw new ApplicationException("Value already exist");
+            throw new ArgumentException("Value already exist"+ nameof(value));
         }
         if (current.Next != current)
         { 
