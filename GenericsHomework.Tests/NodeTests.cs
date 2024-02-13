@@ -2,7 +2,7 @@
 public class NodeTests
 {
     [Fact]
-    public void NodeTests_FirstNode_ValueNotNull_NullPrev_NullNext()
+    public void NodeTests_NodeNotNullAndNextNotNull_Sucess()
     {
         Node<string> myNode = new("12");
 
@@ -11,7 +11,7 @@ public class NodeTests
     }
 
     [Fact]
-    public void NodeTests_FirstNode_Append_SecondNode_Unique()
+    public void NodeTests_AddMultipleUniqueNodes_Success()
     {
         Node<string> myNode = new("4");
         
@@ -23,7 +23,7 @@ public class NodeTests
     }
 
     [Fact]
-    public void NodeTests_FirstNode_Append_SecondNode_NotUnique()
+    public void NodeTests_FirstAndSecondNodeUniqueNotNull_Success()
     {
         Node<string> myNode = new("4");
 
@@ -34,7 +34,7 @@ public class NodeTests
     }
 
     [Fact]
-    public void ToString_Override_Tests()
+    public void NodeTests_ToStringOverride_Success()
     {
         Node<int> myNode = new(12);
 
@@ -42,7 +42,7 @@ public class NodeTests
     }
 
     [Fact]
-    public void NodeTests_ClearMethod_deleteAll()
+    public void NodeTests_ClearMethodDeleteNextNode_Success()
     {
         Node<string> myNode = new("12");
         
@@ -53,7 +53,7 @@ public class NodeTests
     }
 
     [Fact]
-    public void NodeTests_ExistMethod()
+    public void NodeTests_ExistMethod_Success()
     {
         Node<int> myNode = new(12);
 
