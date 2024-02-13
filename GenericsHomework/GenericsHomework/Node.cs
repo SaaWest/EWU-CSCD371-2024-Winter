@@ -24,9 +24,9 @@ public class Node<T>
         
     }
 
-    /*public override string ToString()
+    public override string ToString()
     {
-        Node current = this;
+        Node<T> current = this;
         string outPut = current.Value + " ";
         while (current.Next != null) 
         {
@@ -34,27 +34,23 @@ public class Node<T>
             outPut += current.Value + " ";
         }
         return outPut;
-    }*/
+    }
     public void Append(T value)
     {
+        Node<T> current = this;
         if (Exists(value))
         {
             throw new ApplicationException("Value already exist");
         }
-        else
-        {
-            if (Next != this)
-            {
-                Node<T> newNode = new Node<T>(value);
-                newNode.Next = Next;
-                Next = newNode;
-            }
-            else
-            {
-                Next = new Node<T>(value);
-            }
-        
+        if (current.Next != this)
+        { 
+            current = current.Next;
+             
         }
+        Node<T> tempNode = new(value);
+        current.Next = tempNode;
+        tempNode.Next = this;
+
     }
     public void Clear()
     {
@@ -63,27 +59,19 @@ public class Node<T>
         //however if the list is too big then we need to handle garbage collection otherwise we will get a stack overflow
 
         Next = this;
-        //temp.Next = this;
-        /*if (temp.Next != null)
-        {
-            temp.Next = this;
-        }
-        else
-        {
-            Next = temp;
-        }*/
+
   
     }
     public bool Exists(T value)
     {
-        var current = this;
+        Node<T> current = this;
         do
         {
             if (current.Value.Equals(value))
             {
                 return true;
             }
-        }while(current != this);
+        }while(current.Next != this);
 
         return false;
     }
