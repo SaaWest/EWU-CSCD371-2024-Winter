@@ -2,7 +2,6 @@
 public class Node<T>
 {
     //Node
-  
     public Node(T value)
     {
         Value = value;
@@ -15,7 +14,6 @@ public class Node<T>
     {
         get;
         private set;
-        
     }
 
     public override string ToString()
@@ -27,6 +25,7 @@ public class Node<T>
 
         return Value.ToString()!;
     }
+
     public void Append(T value)
     {
         Node<T> current = this;
@@ -37,7 +36,6 @@ public class Node<T>
         if (current.Next != current)
         { 
             current = current.Next;
-             
         }
         Node<T> tempNode = new(value);
         current.Next = tempNode;
@@ -49,10 +47,7 @@ public class Node<T>
         //With the clear method because none of the the disconnected nodes are being referenced we don't have to worry about garbage collection
         //If Clear() is never called, as long as the list isn't too big then we shouldn't worry about garbage collection
         //however if the list is too big then we need to handle garbage collection otherwise we will get a stack overflow
-
         Next = this;
-
-  
     }
     public bool Exists(T value)
     {
@@ -67,6 +62,5 @@ public class Node<T>
 
         return false;
     }
-
 }
 

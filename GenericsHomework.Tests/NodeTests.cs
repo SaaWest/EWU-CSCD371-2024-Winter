@@ -8,8 +8,8 @@ public class NodeTests
 
         Assert.NotNull(myNode.Value);
         Assert.NotNull(myNode.Next);
-        
     }
+
     [Fact]
     public void NodeTests_FirstNode_Append_SecondNode_Unique()
     {
@@ -20,26 +20,27 @@ public class NodeTests
         myNode.Append("18");
         Assert.NotNull(myNode.Value);
         Assert.NotNull(myNode.Next.Value);
-        
-        
     }
+
     [Fact]
     public void NodeTests_FirstNode_Append_SecondNode_NotUnique()
     {
         Node<string> myNode = new("4");
-        //Assert.Contains("Value already exists",myNode.Append(4));
+
         myNode.Append("8");
         Assert.NotNull(myNode.Value);
         Assert.NotNull(myNode.Next);
 
     }
+
     [Fact]
     public void ToString_Override_Tests()
     {
         Node<int> myNode = new(12);
-        Assert.Equal("12", myNode.ToString());
 
+        Assert.Equal("12", myNode.ToString());
     }
+
     [Fact]
     public void NodeTests_ClearMethod_deleteAll()
     {
@@ -49,16 +50,14 @@ public class NodeTests
         Assert.NotNull(myNode.Next);
         myNode.Clear();
         Assert.Equal("12", myNode.Value);
-
     }
+
     [Fact]
     public void NodeTests_ExistMethod()
     {
         Node<int> myNode = new(12);
 
         Assert.True(myNode.Exists(12));
-
-        
     }
 }
 
