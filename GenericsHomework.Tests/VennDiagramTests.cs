@@ -10,8 +10,7 @@ public  class VennDiagramTests
     [Fact]
     public void VennDiagram_InstantiationTests()
     {
-        List<string> nodeList = new();
-        nodeList.Append("A");
+        List<string> nodeList = ["A", "B", "C"];
         VennDiagram<string> vennDia = new(nodeList);
         Assert.NotNull(nodeList);
         Assert.NotNull(vennDia);
