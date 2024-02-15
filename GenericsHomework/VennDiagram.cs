@@ -19,21 +19,21 @@ public class VennDiagram<T>
     public List<T> Union { get; private set; }
     public List<T> Except { get; private set; }
     public List<T> vennList { get; private set; }
-    public void Add(List<T> item)
+    public void Add(List<T> inputList)
     {
-        for (int i = 0; i < item.Count; i++)
+        for (int i = 0; i < inputList.Count; i++)
         {
-            if (item[i] == null)
+            if (inputList[i] == null)
                 {
-                throw new ArgumentNullException("item " + nameof(item));
+                throw new ArgumentNullException("item " + nameof(inputList));
             }
-            if (vennList.Contains(item[i]))
+            if (vennList.Contains(inputList[i]))
             {
-                Union.Add(item[i]);
+                Union.Add(inputList[i]);
             }
             else
             {
-                Except.Add(item[i]);
+                Except.Add(inputList[i]);
             }
             
         }
