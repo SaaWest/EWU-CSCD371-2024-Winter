@@ -7,7 +7,8 @@ public class Node<T>
         Value = value;
         
         Next = this;
-    }   
+    }
+
     public T Value { get; }
     
     public Node<T> Next
