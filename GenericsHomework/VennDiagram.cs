@@ -23,10 +23,10 @@ public class VennDiagram<T>
     {
         for (int i = 0; i < inputList.Count; i++)
         {
-            if (inputList[i] == null)
+            /*if (inputList[i] == null)
                 {
                 throw new ArgumentNullException("item " + nameof(inputList));
-            }
+            }*/
             if (vennList.Contains(inputList[i]))
             {
                 Union.Add(inputList[i]);
