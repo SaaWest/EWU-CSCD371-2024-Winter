@@ -78,6 +78,7 @@ public class NodeTests
         myNode.Clear();
 
         Assert.Equal("12", myNode.Value);
+        Assert.NotEqual("4", myNode.Next.Value);
     }
 
     [Fact]

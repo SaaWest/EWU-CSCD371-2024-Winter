@@ -8,24 +8,42 @@ namespace GenericsHomework.Tests;
 public  class VennDiagramTests
 {
     [Fact]
-    public void VennDiagram_InstantiationTests()
+    public void VennDiagram_InstaniationTest()
     {
-        List<string> nodeList = ["A", "B", "C"];
-        VennDiagram<string> vennDia = new(nodeList);
-        Assert.NotNull(nodeList);
+        List<string> except = ["A", "B"];
+        VennDiagram<string> vennDiagram = new(except);
+        Assert.Equal(except, vennDiagram.Except);
+    }
+    [Fact]
+    public void VennDiagram_Union_Test()
+    {
+        List<string> except = ["A", "B"];
+        VennDiagram<string> vennDiagram = new(except);
+        vennDiagram.AddUnion("A");
+        Assert.Contains("A", vennDiagram.Except);
+        Assert.Contains("B", vennDiagram.Except);
+    }
+    /*public void VennDiagram_InstantiationTests()
+    {
+        VennDiagram<string> vennDia = new("A");
         Assert.NotNull(vennDia);
 
     }
     [Fact]
-    public void VennDiagram_AddList_ToDiagram()
+    public void VennDiagram_Except_NotNull()
     {
-        List<int> nodeList = new(12);
-        List<int> nodeList2 = new(4);
-        VennDiagram<int> vennDiagram = new(nodeList);
-        vennDiagram.Add(nodeList2);     
+        VennDiagram<string> vennDiagram = new("A");
+        vennDiagram.AddExcept("B");
+        Assert.NotNull(vennDiagram.Except);
 
     }
-    /*[Fact]
-    public void */
+    [Fact]
+    public void VennDiagram_Union_NotNull()
+    {
+        VennDiagram<string> vennDiagram = new("A");
+        vennDiagram.AddUnion("A");
+        Assert.NotNull(vennDiagram.Union);
+    }*/
+  
 }
 
