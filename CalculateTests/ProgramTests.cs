@@ -26,4 +26,11 @@ public class ProgramTests
         program.Writer(line);
         Assert.NotEqual("Writer writing", output);
     }
+
+    [Fact]
+    public void Program_CreateNewProgram_Success()
+    {
+        Program program = new();
+        Assert.NotNull(program);
+    }
 }
