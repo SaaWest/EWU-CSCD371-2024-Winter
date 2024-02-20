@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xunit;
+﻿using Xunit;
 using Calculate;
 namespace CalculateTests;
 public class ProgramTests
@@ -18,10 +12,6 @@ public class ProgramTests
         Program program = new() { Writer = (writer) => output = writer };
         program.Writer(line);
         Assert.Equal(line, output);
-
-        
-       
-        
     }
     [Fact]
     public void Program_ReadWrite_InvalidTests()
@@ -32,6 +22,5 @@ public class ProgramTests
         Program program = new() { Writer = (writer) => output = writer };
         program.Writer(line);
         Assert.NotEqual("Writer writing", output);
-
     }
 }
