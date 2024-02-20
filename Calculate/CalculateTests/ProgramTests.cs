@@ -8,22 +8,28 @@ namespace CalculateTests;
 public class ProgramTests
 {
     [Fact]
-    public void Program_Read_Tests()
+    public void Program_ReadWrite_ValidTests()
     {
+        string line= "Can you Write this?";
+        string output = "";
 
-        Program program = new();
-        program.Writer("Can you Write this?");
-        Assert.Contains("Can you Write this?", program.ToString());
+        Program program = new() { Writer = (writer) => output = writer };
+        program.Writer(line);
+        Assert.Equal(line, output);
+
+        
+       
         
     }
     [Fact]
-    public void Program_Write_Tests()
+    public void Program_ReadWrite_InvalidTests()
     {
-        
-        Program program = new();
-        string input = program.Reader();
-        program.Writer(input);
+        string line = "Can you Write this?";
+        string output = "";
 
-        
+        Program program = new() { Writer = (writer) => output = writer };
+        program.Writer(line);
+        Assert.NotEqual("Writer writing", output);
+
     }
 }

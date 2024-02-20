@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculate", "Calculate\Calculate.csproj", "{1E90DFAF-43C3-4A52-A865-7A6A66C90897}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculate", "Calculate\Calculate.csproj", "{1E90DFAF-43C3-4A52-A865-7A6A66C90897}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculateTests", "CalculateTests\CalculateTests.csproj", "{DB796E4B-A8DA-42D4-B955-AF40D9529A90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculateTests", "CalculateTests\CalculateTests.csproj", "{DB796E4B-A8DA-42D4-B955-AF40D9529A90}"
 	ProjectSection(ProjectDependencies) = postProject
 		{1E90DFAF-43C3-4A52-A865-7A6A66C90897} = {1E90DFAF-43C3-4A52-A865-7A6A66C90897}
 	EndProjectSection
