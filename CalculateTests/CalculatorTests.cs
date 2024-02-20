@@ -16,7 +16,6 @@ public class CalculatorTests
     [InlineData(1, 1)]
     public void Calculator_Add_Test(double x, double y) 
     {
-        //Calculator calculator = new(int x, int y);
         var z = Calculator.Add(x, y);
         Assert.True(z.Equals(2));
     }
@@ -25,10 +24,8 @@ public class CalculatorTests
     [InlineData(1, 1)]
     public void Calculator_Subtract_Test(double x, double y)
     {
-
         var z = Calculator.Subtract(x, y);
         Assert.True(z.Equals(0));
-
     }
 
     [Theory]
