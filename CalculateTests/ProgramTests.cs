@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xunit;
-
+using Calculate;
 namespace CalculateTests;
 public class ProgramTests
 {
