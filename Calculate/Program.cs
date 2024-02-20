@@ -11,7 +11,7 @@ public class Program
 
     public static void Main()
     {
-        Program program = new Program();
+        Program program = new();
         double response;
         string input;
         do

@@ -27,15 +27,14 @@ public class Calculator
     {
         result = 0;
         string[] input = command.Split(' ');
-        double operand1, operand2;
-        
+
         if (input.Length != 3)
         {
             return false;
         }
 
         //char operation = input[1][0];
-        if (!double.TryParse(input[0], out operand1) || !double.TryParse(input[2], out operand2)) 
+        if (!double.TryParse(input[0], out double operand1) || !double.TryParse(input[2], out double operand2)) 
         { 
             return false; 
         }
