@@ -1,6 +1,8 @@
 ﻿using Xunit;
 using Calculate;
+
 namespace CalculateTests;
+
 public class ProgramTests
 {
     [Fact]
@@ -13,6 +15,7 @@ public class ProgramTests
         program.Writer(line);
         Assert.Equal(line, output);
     }
+
     [Fact]
     public void Program_ReadWrite_InvalidTestFailure()
     {
