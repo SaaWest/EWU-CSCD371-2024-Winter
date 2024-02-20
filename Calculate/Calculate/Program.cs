@@ -11,7 +11,7 @@
 
         }
 
-        public Func<string> Reader { get;  init; } = Console.ReadLine;
-        public Action<string> Writer { get; init; } = Console.WriteLine;
+        public Func<string?> Reader { get; init; } = Console.ReadLine;
+        public Action<string?> Writer { get; init; } = Console.WriteLine;
     }
 }

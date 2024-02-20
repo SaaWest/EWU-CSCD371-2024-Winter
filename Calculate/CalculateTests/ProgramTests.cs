@@ -11,7 +11,7 @@ public class ProgramTests
     public void Program_Read_Tests()
     {
 
-        Program program = new();
+        Program program = new() { Reader = "Can you Read this?" };
         program.Writer("Can you Write this?");
         Assert.Contains("Can you Write this?", program.ToString());
         
@@ -21,7 +21,7 @@ public class ProgramTests
     {
         
         Program program = new();
-        string input = program.Reader();
+        string? input = program.Reader();
         program.Writer(input);
 
         
