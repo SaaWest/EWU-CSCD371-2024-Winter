@@ -17,7 +17,8 @@ public class CalculatorTests
     public void Calculator_Add_TestSuccess(int x, int y) 
     {
         var z = Calculator.Add(x, y);
-        Assert.True(z.Equals(2));
+        
+        Assert.Equal(2, z);
     }
 
     [Theory]
@@ -25,7 +26,8 @@ public class CalculatorTests
     public void Calculator_Subtract_TestSuccess(int x, int y)
     {
         var z = Calculator.Subtract(x, y);
-        Assert.True(z.Equals(0));
+        
+        Assert.Equal(0, z);
     }
 
     [Theory]
@@ -33,7 +35,8 @@ public class CalculatorTests
     public void Calculator_Divide_TestSuccess(int x, int y)
     {
         var z = Calculator.Divide(x, y);
-        Assert.True(z.Equals(1));
+        
+        Assert.Equal(1, z);
     }
 
     [Theory]
@@ -41,7 +44,9 @@ public class CalculatorTests
     public void Calculator_Multiply_TestSuccess(int x, int y)
     {
         var z= Calculator.Multiply(x, y);
-        Assert.True(z.Equals(4));
+        
+        Assert.Equal(4, z);
+
     }
 
     [Theory]
