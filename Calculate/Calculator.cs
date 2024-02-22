@@ -41,8 +41,8 @@ public class Calculator
         { 
             return false; 
         }
-        var op = MathematicalOperations[input[1][0]];
-        result = op(operand1, operand2);
+        var operation = MathematicalOperations[input[1][0]];
+        result = operation(operand1, operand2);
         return true;
     }
 }
