@@ -48,6 +48,7 @@ public class CalculatorTests
     {
         Calculator calculator = new();
         calculator.TryCalculate(expression, out int expected);
+
         Assert.Equal(output, expected);
     }
 
@@ -57,6 +58,7 @@ public class CalculatorTests
     {
         Calculator calculator = new();
         calculator.TryCalculate(expression, out int expected);
+
         Assert.Equal(output, expected);
     }
 
@@ -66,6 +68,7 @@ public class CalculatorTests
     {
         Calculator calculator = new();
         calculator.TryCalculate(expression, out int expected);
+
         Assert.Equal(output, expected);
     }
 
@@ -75,6 +78,7 @@ public class CalculatorTests
     {
         Calculator calculator = new();
         calculator.TryCalculate(expression, out int expected);
+
         Assert.Equal(output, expected);
     }
 
@@ -84,6 +88,7 @@ public class CalculatorTests
     {
         Calculator calculator = new();
         var tests = calculator.TryCalculate(expression, out _ );
+
         Assert.False(tests);
     }
 
@@ -93,6 +98,7 @@ public class CalculatorTests
     {
         Calculator calculator = new();
         var tests = calculator.TryCalculate(expression, out _);
+
         Assert.False(tests);
     }
 
@@ -102,6 +108,7 @@ public class CalculatorTests
     {
         Calculator calculator = new();
         var tests = calculator.TryCalculate(expression, out _);
+
         Assert.False(tests);
     }
 }

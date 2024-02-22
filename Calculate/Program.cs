@@ -12,7 +12,7 @@ public class Program
     public static void Main()
     {
         Program program = new();
-        Calculator calculator = new Calculator();
+        Calculator calculator = new();
         int response;
         string input;
         do
