@@ -2,8 +2,8 @@
 
 public class Program
 {
-    public Func<string?> Reader { get; init; } = Console.ReadLine;
-    public Action<string> Writer { get; init; } = Console.WriteLine;
+    public Func<string?> ReadLine { get; init; } = Console.ReadLine;
+    public Action<string> WriteLine { get; init; } = Console.WriteLine;
 
     public Program()
     {
@@ -12,13 +12,14 @@ public class Program
     public static void Main()
     {
         Program program = new();
-        double response;
+        Calculator calculator = new Calculator();
+        int response;
         string input;
         do
         {
-            program.Writer("Enter your Math expression");
-            input = program.Reader()!;
-        } while (!Calculator.TryCalculate(input, out response));
-        program.Writer($"Answer: {response}");
+            program.WriteLine("Enter your Math expression");
+            input = program.ReadLine()!;
+        } while (!calculator.TryCalculate(input, out response));
+        program.WriteLine($"Answer: {response}");
     }
 }

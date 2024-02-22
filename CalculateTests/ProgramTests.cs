@@ -11,8 +11,8 @@ public class ProgramTests
         string line= "Can you Write this?";
         string output = "";
 
-        Program program = new() { Writer = (writer) => output = writer };
-        program.Writer(line);
+        Program program = new() { WriteLine = (writer) => output = writer };
+        program.WriteLine(line);
         Assert.Equal(line, output);
     }
 
@@ -22,8 +22,8 @@ public class ProgramTests
         string line = "Can you Write this?";
         string output = "";
 
-        Program program = new() { Writer = (writer) => output = writer };
-        program.Writer(line);
+        Program program = new() { WriteLine = (writer) => output = writer };
+        program.WriteLine(line);
         Assert.NotEqual("Writer writing", output);
     }
 

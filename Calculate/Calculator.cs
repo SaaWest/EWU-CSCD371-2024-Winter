@@ -7,15 +7,15 @@ public class Calculator
 
     }
 
-    public static double Add(double x, double y) => x + y;
+    public static int Add(int x, int y) => x + y;
 
-    public static double Subtract(double x, double y) => x-y;
+    public static int Subtract(int x, int y) => x-y;
 
-    public static double Divide(double x, double y) => x/y;
+    public static int Divide(int x, int y) => x/y;
 
-    public static double Multiply(double x, double y) => x*y;
+    public static int Multiply(int x, int y) => x*y;
 
-    public static readonly IReadOnlyDictionary<char, Func<double, double, double>> MathematicalOperations = new Dictionary<char, Func<double, double, double>>
+    public IReadOnlyDictionary<char, Func<int, int, int>> MathematicalOperations { get; } = new Dictionary<char, Func<int, int, int>>
     {
         {'+', Add },
         {'-', Subtract },
@@ -23,7 +23,7 @@ public class Calculator
         {'*', Multiply }
     };
 
-    public static bool TryCalculate(string command, out double result)
+    public bool TryCalculate(string command, out int result)
     {
         result = 0;
         string[] input = command.Split(' ');
@@ -34,7 +34,7 @@ public class Calculator
         }
 
         //char operation = input[1][0];
-        if (!double.TryParse(input[0], out double operand1) || !double.TryParse(input[2], out double operand2)) 
+        if (!int.TryParse(input[0], out int operand1) || !int.TryParse(input[2], out int operand2)) 
         { 
             return false; 
         }
