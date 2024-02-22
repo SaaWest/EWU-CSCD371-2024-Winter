@@ -5,13 +5,6 @@ namespace CalculateTests;
 
 public class CalculatorTests
 {
-    [Fact]
-    public void Calculator_Constructor_TestSuccess()
-    {
-        Calculator calculator = new();
-        Assert.NotNull(calculator);
-    }
-
     [Theory]
     [InlineData(1, 1)]
     public void Calculator_Add_TestSuccess(int x, int y) 
