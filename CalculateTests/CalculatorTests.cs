@@ -9,7 +9,7 @@ public class CalculatorTests
     [InlineData(1, 1)]
     public void Calculator_Add_TestSuccess(int x, int y) 
     {
-        var z = Calculator.Add(x, y);
+        var z = Calculator<int>.Add(x, y);
         
         Assert.Equal(2, z);
     }
@@ -18,7 +18,7 @@ public class CalculatorTests
     [InlineData(1, 1)]
     public void Calculator_Subtract_TestSuccess(int x, int y)
     {
-        var z = Calculator.Subtract(x, y);
+        var z = Calculator<int>.Subtract(x, y);
         
         Assert.Equal(0, z);
     }
@@ -27,7 +27,7 @@ public class CalculatorTests
     [InlineData(2, 2)]
     public void Calculator_Divide_TestSuccess(int x, int y)
     {
-        var z = Calculator.Divide(x, y);
+        var z = Calculator<int>.Divide(x, y);
         
         Assert.Equal(1, z);
     }
@@ -36,7 +36,7 @@ public class CalculatorTests
     [InlineData(2, 2)]
     public void Calculator_Multiply_TestSuccess(int x, int y)
     {
-        var z= Calculator.Multiply(x, y);
+        var z= Calculator<int>.Multiply(x, y);
         
         Assert.Equal(4, z);
 
@@ -46,7 +46,7 @@ public class CalculatorTests
     [InlineData("2 + 2", 4)]
     public void Calculator_TryCalculateAddition_TestSuccess( string expression, int output )
     {
-        Calculator calculator = new();
+        Calculator<int> calculator = new();
         calculator.TryCalculate(expression, out int expected);
 
         Assert.Equal(output, expected);
@@ -56,7 +56,7 @@ public class CalculatorTests
     [InlineData("2 - 2", 0)]
     public void Calculator_TryCalculateSubtraction_TestSuccess(string expression, int output)
     {
-        Calculator calculator = new();
+        Calculator<int> calculator = new();
         calculator.TryCalculate(expression, out int expected);
 
         Assert.Equal(output, expected);
@@ -66,7 +66,7 @@ public class CalculatorTests
     [InlineData("3 * 3", 9)]
     public void Calculator_TryCalculateMultiplication_TestSuccess(string expression, int output)
     {
-        Calculator calculator = new();
+        Calculator<int> calculator = new();
         calculator.TryCalculate(expression, out int expected);
 
         Assert.Equal(output, expected);
@@ -76,7 +76,7 @@ public class CalculatorTests
     [InlineData("10 / 2", 5)]
     public void Calculator_TryCalculateDivision_TestSuccess(string expression, int output)
     {
-        Calculator calculator = new();
+        Calculator<int> calculator = new();
         calculator.TryCalculate(expression, out int expected);
 
         Assert.Equal(output, expected);
@@ -87,7 +87,7 @@ public class CalculatorTests
     [InlineData("2  +  2")]
     public void Calculator_TryCalculateInvalidAddition_TestFailure(string expression)
     {
-        Calculator calculator = new();
+        Calculator<int> calculator = new();
         var tests = calculator.TryCalculate(expression, out _ );
 
         Assert.False(tests);
@@ -98,7 +98,7 @@ public class CalculatorTests
     [InlineData("3 +3")]
     public void Calculator_TryCalculateInvalidMultiplicationWithWhiteSpace_TestFailure(string expression)
     {
-        Calculator calculator = new();
+        Calculator<int> calculator = new();
         var tests = calculator.TryCalculate(expression, out _);
 
         Assert.False(tests);
@@ -109,7 +109,7 @@ public class CalculatorTests
     [InlineData("2 @ 2")]
     public void Calculator_TryCalculateInvalidOperation_TestFailure(string expression)
     {
-        Calculator calculator = new();
+        Calculator<int> calculator = new();
         var tests = calculator.TryCalculate(expression, out _);
 
         Assert.False(tests);

@@ -1,20 +1,23 @@
-﻿namespace Calculate;
+﻿using System.Globalization;
+using System.Numerics;
 
-public class Calculator
+namespace Calculate;
+
+public class Calculator<T> where T : INumber<T>
 {
     public Calculator()
     {
     }
 
-    public static int Add(int x, int y) => x + y;
+    public static T Add(T x, T y) => x + y;
 
-    public static int Subtract(int x, int y) => x-y;
+    public static T Subtract(T x, T y) => x-y;
 
-    public static int Divide(int x, int y) => x/y;
+    public static T Divide(T x, T y) => x/y;
 
-    public static int Multiply(int x, int y) => x*y;
+    public static T Multiply(T x, T y) => x*y;
 
-    public IReadOnlyDictionary<char, Func<int, int, int>> MathematicalOperations { get; } = new Dictionary<char, Func<int, int, int>>
+    public IReadOnlyDictionary<char, Func<T, T, T>> MathematicalOperations { get; } = new Dictionary<char, Func<T, T, T>>
     {
         {'+', Add },
         {'-', Subtract },
@@ -22,9 +25,9 @@ public class Calculator
         {'*', Multiply }
     };
 
-    public bool TryCalculate(string command, out int result)
+    public bool TryCalculate(string command, out T result)
     {
-        result = 0;
+        result = T.Zero;
         string[] input = command.Split(' ');
 
         if (input.Length != 3)
@@ -33,7 +36,7 @@ public class Calculator
         }
 
         //char operation = input[1][0];
-        if (!int.TryParse(input[0], out int operand1) || !int.TryParse(input[2], out int operand2)) 
+        if (!T.TryParse(input[0], CultureInfo.InvariantCulture, out T? operand1) || !T.TryParse(input[2], CultureInfo.InvariantCulture,out T? operand2)) 
         { 
             return false; 
         }
