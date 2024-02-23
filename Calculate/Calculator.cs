@@ -8,7 +8,7 @@ public class Calculator<T> where T : INumber<T>
     public Calculator()
     {
     }
-
+#pragma warning disable CA1000
     public static T Add(T x, T y) => x + y;
 
     public static T Subtract(T x, T y) => x-y;
@@ -16,7 +16,7 @@ public class Calculator<T> where T : INumber<T>
     public static T Divide(T x, T y) => x/y;
 
     public static T Multiply(T x, T y) => x*y;
-
+#pragma warning restore CA1000
     public IReadOnlyDictionary<char, Func<T, T, T>> MathematicalOperations { get; } = new Dictionary<char, Func<T, T, T>>
     {
         {'+', Add },
