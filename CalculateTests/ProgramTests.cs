@@ -26,4 +26,20 @@ public class ProgramTests
         program.WriteLine(line);
         Assert.NotEqual("Writer writing", output);
     }
+    [Theory]
+    [InlineData("Read this")]
+    public void Program_ReadLine_Valid(string input)
+    {
+        Program program = new() { ReadLine = () => input };
+
+        Assert.Equal(input, program.ReadLine());
+    }
+    [Theory]
+    [InlineData(null)]
+    public void Program_ReadLine_Null(string? input)
+    {
+        Program program = new() {  ReadLine = () => input};
+        Assert.Null(program.ReadLine());
+
+    }
 }

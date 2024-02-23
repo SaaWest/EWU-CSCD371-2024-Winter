@@ -80,6 +80,7 @@ public class CalculatorTests
 
     [Theory]
     [InlineData("2+2")]
+    [InlineData("2  +  2")]
     public void Calculator_TryCalculateInvalidAddition_TestFailure(string expression)
     {
         Calculator calculator = new();
@@ -89,6 +90,7 @@ public class CalculatorTests
 
     [Theory]
     [InlineData("2*  2")]
+    [InlineData("3 +3")]
     public void Calculator_TryCalculateInvalidMultiplicationWithWhiteSpace_TestFailure(string expression)
     {
         Calculator calculator = new();
@@ -98,6 +100,7 @@ public class CalculatorTests
 
     [Theory]
     [InlineData("2 # 2")]
+    [InlineData("2 @ 2")]
     public void Calculator_TryCalculateInvalidOperation_TestFailure(string expression)
     {
         Calculator calculator = new();
