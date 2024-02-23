@@ -29,18 +29,13 @@ public class Node<T>
 
     public void Append(T value)
     {
-        Node<T> current = this;
-        if (Exists(value))
+        if (Exists(value)) throw new ArgumentException("This item already exists in the list");
+        Node<T> newNode = new(value)
         {
-            throw new ArgumentException("Value already exist "+ (nameof(value)));
-        }
-        if (current.Next != current)
-        { 
-            current = current.Next;
-        }
-        Node<T> tempNode = new(value);
-        current.Next = tempNode;
-        tempNode.Next = this;
+            Next = Next
+        };
+        Next = newNode;
+        return newNode;
 
     }
     public void Clear()
